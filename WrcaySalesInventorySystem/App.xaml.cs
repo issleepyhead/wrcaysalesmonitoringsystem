@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WrcaySalesInventorySystem.Properties;
 
 namespace WrcaySalesInventorySystem
 {
@@ -27,7 +28,7 @@ namespace WrcaySalesInventorySystem
         private void ConfigureServices(ServiceCollection services)
         {
             services.AddDbContext<DBCONTEXT>(options => {
-                options.UseSqlServer("");
+                options.UseSqlite(Settings.Default.wrcaydbConnectionString);
             });
             services.AddSingleton<MainWindow>();
         }
