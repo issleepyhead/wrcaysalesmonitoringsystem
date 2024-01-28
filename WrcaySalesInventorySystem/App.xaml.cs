@@ -28,7 +28,7 @@ namespace WrcaySalesInventorySystem
         private void ConfigureServices(ServiceCollection services)
         {
             services.AddDbContext<DBCONTEXT>(options => {
-                options.UseSqlite(Settings.Default.wrcaydbConnectionString);
+                options.UseSqlServer(Settings.Default.wrcaydbConnectionString);
             });
             services.AddSingleton<MainWindow>();
         }

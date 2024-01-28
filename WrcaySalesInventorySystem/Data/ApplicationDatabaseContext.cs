@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WrcaySalesInventorySystem.Models;
 using WrcaySalesInventorySystem.Properties;
 
@@ -18,6 +13,7 @@ namespace WrcaySalesInventorySystem.Data
         public DbSet<Role> Roles { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Status> Statuses { get; set; }
+        public DbSet<SubCategory> subCategories { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<User> Users { get; set; }

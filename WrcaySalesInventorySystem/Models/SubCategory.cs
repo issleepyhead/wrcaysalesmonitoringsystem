@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    internal class Category
+    class SubCategory
     {
-        [Key]
-        public int CategoryId { get; set; }
+        public int SubCategoryID { get; set; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "Category Name must be 50 characters or less.")]
@@ -20,6 +18,6 @@ namespace WrcaySalesInventorySystem.Models
         [DisplayName("Category Description")]
         public string? CategoryDescription { get; set; }
 
-        public ICollection<Product>? Products { get; set; }
+        public string? CategoryID { get; set; }
     }
 }

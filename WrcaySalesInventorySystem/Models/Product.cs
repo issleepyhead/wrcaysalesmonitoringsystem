@@ -21,9 +21,11 @@ namespace WrcaySalesInventorySystem.Models
         public string? ProductDescription { get; set; }
 
         [Required]
+        [DisplayName("Price")]
         public double ProductPrice { get; set; }
 
         [Required]
+        [DisplayName("Cost")]
         public double ProductCost { get; set; }
 
         
