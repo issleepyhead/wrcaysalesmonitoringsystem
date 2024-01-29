@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WrcaySalesInventorySystem.Models
 {
@@ -16,12 +18,16 @@ namespace WrcaySalesInventorySystem.Models
         [Required]
         [MaxLength(25, ErrorMessage ="Phone Number must be 25 characters or less.")]
         [DisplayName("Phone")]
+        [Column(TypeName = "VARCHAR")]
         public string? SupplierPhone { get; set; }
 
         [Required]
         [MaxLength(150, ErrorMessage ="Email Address must be 150 characters or less.")]
         [DisplayName("Email")]
+        [Column(TypeName = "VARCHAR")]
         public string? SupplierEmail { get; set; }
+
+        public ICollection<Product>? Products { get; set; }
 
 
     }

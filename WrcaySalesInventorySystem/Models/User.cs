@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WrcaySalesInventorySystem.Models
 {
@@ -11,28 +12,41 @@ namespace WrcaySalesInventorySystem.Models
         public int UserID { get; set; }
 
         [Required]
-        [MaxLength(100, ErrorMessage ="Username must be 100 characters or less."), MinLength(6)]
+        [MaxLength(100, ErrorMessage = "Username must be 100 characters or less."), MinLength(6)]
         [DisplayName("Username")]
+        [Column(TypeName = "VARCHAR")]
         public string? UserName { get; set; }
 
         [Required]
         [MaxLength(75)]
         [DisplayName("Password")]
+        [Column( TypeName = "VARCHAR")]
         public string? Password { get; set; }
 
-        [MaxLength(100, ErrorMessage ="First name must be 100 characters or less.")]
+        [MaxLength(100, ErrorMessage = "First name must be 100 characters or less.")]
         [DisplayName("First Name")]
+        [Column(TypeName = "VARCHAR")]
         public string? FirstName { get; set; }
 
-        [MaxLength(100, ErrorMessage ="Last name must be 100 characters or less.")]
+        [MaxLength(100, ErrorMessage = "Last name must be 100 characters or less.")]
         [DisplayName("Last Name")]
+        [Column(TypeName = "VARCHAR")]
         public string? LastName { get; set; }
 
-        
+        [MaxLength(150, ErrorMessage="Email must be 150 characters or less.")]
+        [Column(TypeName ="VARCHAR")]
         public string? Email { get; set; }
 
         [DisplayName("Birth Date")]
-        public DateOnly BirthDate { get; set; }
+        [Column(TypeName="DATE")]
+        public DateTime BirthDate { get; set; }
+
+        [DisplayName("Role")]
+        [DefaultValue("NULL")]
+        public int RoleID { get; set; }
+
+        [ForeignKey("RoleID")]
+        public virtual Role? Role {get; set;} 
 
 
     }
