@@ -3,10 +3,12 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
+using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    internal class Product
+    internal class Product : IDataCommand
     {
         [Key]
         public int ProductID { get; set; }
@@ -41,6 +43,31 @@ namespace WrcaySalesInventorySystem.Models
 
         [ForeignKey("SupplierID")]
         public virtual Supplier? Supplier { get; set; } = null;
+
+        public Task<bool> Add()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> Delete()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool Exists()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> IsValid()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> Update()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
 

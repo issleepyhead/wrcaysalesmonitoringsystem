@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WrcaySalesInventorySystem.Classs
+namespace WrcaySalesInventorySystem.Classs.Interface
 {
-    internal class CategoryCommand
+    internal interface IDataExecutor
     {
+        bool Execute();
     }
 }

@@ -2,10 +2,12 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Threading.Tasks;
+using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    internal class User
+    internal class User : IDataCommand
     {
 
         [Key]
@@ -46,8 +48,31 @@ namespace WrcaySalesInventorySystem.Models
         public int RoleID { get; set; }
 
         [ForeignKey("RoleID")]
-        public virtual Role? Role {get; set;} 
+        public virtual Role? Role {get; set;}
 
+        public Task<bool> Add()
+        {
+            throw new System.NotImplementedException();
+        }
 
+        public Task<bool> Delete()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool Exists()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> IsValid()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> Update()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
