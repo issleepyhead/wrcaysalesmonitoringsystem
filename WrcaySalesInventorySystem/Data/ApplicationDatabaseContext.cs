@@ -18,7 +18,10 @@ namespace WrcaySalesInventorySystem.Data
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<User> Users { get; set; }
 
-
+        public ApplicationDatabaseContext(DbContextOptions<ApplicationDatabaseContext>? options = null) : base(options)
+        {
+            
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder

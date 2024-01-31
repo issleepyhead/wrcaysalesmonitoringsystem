@@ -8,6 +8,6 @@ namespace WrcaySalesInventorySystem.Classs.Interface
 {
     internal interface IDataExecutor
     {
-        bool Execute();
+        Task<bool> Execute();
     }
 }

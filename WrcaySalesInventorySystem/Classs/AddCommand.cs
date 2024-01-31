@@ -9,14 +9,14 @@ namespace WrcaySalesInventorySystem.Classs
 {
     internal class AddCommand : IDataExecutor
     {
-        private IDataCommand dataCommand;
+        private readonly IDataCommand dataCommand;
 
         public AddCommand(IDataCommand dataCommand)
         {
             this.dataCommand = dataCommand;
         }
 
-        public bool Execute()
+        public Task<bool> Execute()
         {
             return this.dataCommand.Add();
         }

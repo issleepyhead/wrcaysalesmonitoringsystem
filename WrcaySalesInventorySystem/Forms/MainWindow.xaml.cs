@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WrcaySalesInventorySystem.Data;
 
 namespace WrcaySalesInventorySystem
 {

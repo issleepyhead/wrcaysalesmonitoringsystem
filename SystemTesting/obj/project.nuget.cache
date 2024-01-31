@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "+0I3U+z+TZMP6Zwszb53VVERSrX+TgdA5WzpsubOnYvmZKjrkm6AipGGWNepr3RItoCGXuBsnHqFaQOq3Zjf2Q==",
+  "success": false,
+  "projectFilePath": "D:\\system\\WrcaySalesInventorySystem\\SystemTesting\\SystemTesting.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project WrcaySalesInventorySystem is not compatible with net7.0 (.NETCoreApp,Version=v7.0). Project WrcaySalesInventorySystem supports: net7.0-windows7.0 (.NETCoreApp,Version=v7.0)",
+      "libraryId": "WrcaySalesInventorySystem",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
+}
