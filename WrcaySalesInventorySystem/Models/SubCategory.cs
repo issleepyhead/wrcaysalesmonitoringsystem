@@ -6,7 +6,7 @@ using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    class SubCategory : IDataCommand
+    public class SubCategory : IDataCommand
     {
         [Key]
         public int SubCategoryID { get; set; }

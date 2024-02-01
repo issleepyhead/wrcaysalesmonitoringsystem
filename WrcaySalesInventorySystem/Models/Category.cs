@@ -10,9 +10,9 @@ using WrcaySalesInventorySystem.Data;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    internal class Category : IDataCommand
+    public class Category //: IDataCommand
     {
-        private ApplicationDatabaseContext applicationDatabaseContext = new ApplicationDatabaseContext();
+        //private ApplicationDatabaseContext applicationDatabaseContext = new ApplicationDatabaseContext(null);
 
         [Key]
         public int CategoryId { get; set; }
@@ -31,35 +31,35 @@ namespace WrcaySalesInventorySystem.Models
         public ICollection<Product>? Products { get; set; }
         public ICollection<SubCategory>? SubCategories { get; set; }
 
-        public async Task<bool> Add()
-        {
-            await applicationDatabaseContext.Categories.AddAsync(this);
-            int created = await applicationDatabaseContext.SaveChangesAsync();
-            return created > 0;
-        }
+        //public async Task<bool> Add()
+        //{
+        //    await applicationDatabaseContext.Categories.AddAsync(this);
+        //    int created = await applicationDatabaseContext.SaveChangesAsync();
+        //    return created > 0;
+        //}
 
-        public async Task<bool> Delete()
-        {
-            await applicationDatabaseContext.Categories.AddAsync(this);
-            int created = await applicationDatabaseContext.SaveChangesAsync();
-            return created > 0;
-        }
+        //public async Task<bool> Delete()
+        //{
+        //    await applicationDatabaseContext.Categories.AddAsync(this);
+        //    int created = await applicationDatabaseContext.SaveChangesAsync();
+        //    return created > 0;
+        //}
 
-        public bool Exists()
-        {
-            return applicationDatabaseContext.Categories.ToArray().Contains(this);
-        }
+        //public bool Exists()
+        //{
+        //    return applicationDatabaseContext.Categories.ToArray().Contains(this);
+        //}
 
-        public Task<bool> IsValid()
-        {
-            throw new System.NotImplementedException();
-        }
+        //public Task<bool> IsValid()
+        //{
+        //    throw new System.NotImplementedException();
+        //}
 
-        public async Task<bool> Update()
-        {
-            applicationDatabaseContext.Categories.Update(this);
-            int created = await applicationDatabaseContext.SaveChangesAsync();
-            return created > 0;
-        }
+        //public async Task<bool> Update()
+        //{
+        //    applicationDatabaseContext.Categories.Update(this);
+        //    int created = await applicationDatabaseContext.SaveChangesAsync();
+        //    return created > 0;
+        //}
     }
 }

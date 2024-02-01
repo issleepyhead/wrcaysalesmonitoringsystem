@@ -4,7 +4,7 @@ using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    internal class Transaction : IDataCommand
+    public class Transaction : IDataCommand
     {
         [Key]
         public int TransactionID { get; set; }

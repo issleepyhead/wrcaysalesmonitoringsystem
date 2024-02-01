@@ -346,7 +346,7 @@ namespace WrcaySalesInventorySystem.Migrations
             modelBuilder.Entity("WrcaySalesInventorySystem.Models.SubCategory", b =>
                 {
                     b.HasOne("WrcaySalesInventorySystem.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("SubCategories")
                         .HasForeignKey("CategoryID")
                         .HasConstraintName("fk_sub_categories_categories_category_id");
 
@@ -368,6 +368,8 @@ namespace WrcaySalesInventorySystem.Migrations
             modelBuilder.Entity("WrcaySalesInventorySystem.Models.Category", b =>
                 {
                     b.Navigation("Products");
+
+                    b.Navigation("SubCategories");
                 });
 
             modelBuilder.Entity("WrcaySalesInventorySystem.Models.Role", b =>

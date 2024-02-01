@@ -4,7 +4,7 @@ using WrcaySalesInventorySystem.Properties;
 
 namespace WrcaySalesInventorySystem.Data
 {
-    internal class ApplicationDatabaseContext : DbContext
+    public class ApplicationDatabaseContext : DbContext
     {
 
         public DbSet<Category> Categories { get; set; }
@@ -18,7 +18,7 @@ namespace WrcaySalesInventorySystem.Data
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public ApplicationDatabaseContext(DbContextOptions<ApplicationDatabaseContext>? options = null) : base(options)
+        public ApplicationDatabaseContext(DbContextOptions<ApplicationDatabaseContext> options) : base(options)
         {
             
         }

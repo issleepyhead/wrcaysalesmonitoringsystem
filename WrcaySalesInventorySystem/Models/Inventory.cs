@@ -3,7 +3,7 @@ using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    internal class Inventory : IDataCommand
+    public class Inventory : IDataCommand
     {
         public int InventoryID { get; set; }
         public int DeliveryID { get; set; }

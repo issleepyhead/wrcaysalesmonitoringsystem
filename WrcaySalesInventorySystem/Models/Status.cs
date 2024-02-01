@@ -6,7 +6,7 @@ using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    internal class Status : IDataCommand
+    public class Status : IDataCommand
     {
         [Key]
         public int StatusID { get; set; }

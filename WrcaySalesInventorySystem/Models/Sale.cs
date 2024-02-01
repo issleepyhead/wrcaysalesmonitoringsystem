@@ -7,7 +7,7 @@ using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    internal class Sale : IDataCommand
+    public class Sale : IDataCommand
     {
         [Key]
         public int SaleID { get; set; }
