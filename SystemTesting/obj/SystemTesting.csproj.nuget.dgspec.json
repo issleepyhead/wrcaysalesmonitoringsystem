@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\system\\WrcaySalesInventorySystem\\SystemTesting\\SystemTesting.csproj": {}
+    "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj": {}
   },
   "projects": {
-    "D:\\system\\WrcaySalesInventorySystem\\SystemTesting\\SystemTesting.csproj": {
+    "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\system\\WrcaySalesInventorySystem\\SystemTesting\\SystemTesting.csproj",
+        "projectUniqueName": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj",
         "projectName": "SystemTesting",
-        "projectPath": "D:\\system\\WrcaySalesInventorySystem\\SystemTesting\\SystemTesting.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\system\\WrcaySalesInventorySystem\\SystemTesting\\obj\\",
+        "projectPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj",
+        "packagesPath": "C:\\Users\\Clancy\\.nuget\\packages\\",
+        "outputPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Clancy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "D:\\system\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
-                "projectPath": "D:\\system\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj"
+              "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
+                "projectPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj"
               }
             }
           }
@@ -46,11 +46,11 @@
           "dependencies": {
             "MSTest.TestAdapter": {
               "target": "Package",
-              "version": "[2.2.10, )"
+              "version": "[3.2.0, )"
             },
             "MSTest.TestFramework": {
               "target": "Package",
-              "version": "[2.2.10, )"
+              "version": "[3.2.0, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
@@ -58,11 +58,13 @@
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.3.2, )"
+              "version": "[17.8.0, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -81,21 +83,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\system\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
+    "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\system\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
+        "projectUniqueName": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
         "projectName": "WrcaySalesInventorySystem",
-        "projectPath": "D:\\system\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\system\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem\\obj\\",
+        "projectPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
+        "packagesPath": "C:\\Users\\Clancy\\.nuget\\packages\\",
+        "outputPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Clancy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -139,7 +141,7 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.15, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -171,7 +173,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

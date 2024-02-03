@@ -1,33 +1,40 @@
 using WrcaySalesInventorySystem.Models;
 using WrcaySalesInventorySystem.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace SystemTesting
 {
     [TestClass]
     public class CategoryTest
     {
-        private ApplicationDatabaseContext databaseContext = new ApplicationDatabaseContext(new Microsoft.EntityFrameworkCore.DbContextOptions<ApplicationDatabaseContext>());
+        private ApplicationDatabaseContext databaseContext;
         public CategoryTest()
         {
-            
+            databaseContext = new(new DbContextOptions<ApplicationDatabaseContext>());
         }
 
         [TestMethod]
         public void CategoryTestForEmptyString()
         {
-            databaseContext.Categories.Add(
+            databaseContext.Categories.Add(new Category
             {
-                CategoryName = "Jamari",
-                CategoryDescription = "Something"
+                CategoryName = "Jamargsegesi",
+                CategoryDescription = "Somfrawfawethings"
             });
 
-            if (databaseContext.SaveChanges() < 0)
-            {
-                throw new Exception("Error");
-            } else
-            {
-
-            }
+            Assert.IsFalse(databaseContext.SaveChanges() < 0, "Nag save pare!");
         }
+
+        //[TestMethod]
+        //public void CategoryTestForNullString()
+        //{
+        
+        //}
+
+        //[TestMethod]
+        //public void CategoryTestForNullCategory()
+        //{
+
+        //}
     }
 }
