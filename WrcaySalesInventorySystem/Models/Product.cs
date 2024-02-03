@@ -8,7 +8,7 @@ using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    public class Product : IDataCommand
+    public class Product
     {
         [Key]
         public int ProductID { get; set; }
@@ -43,31 +43,6 @@ namespace WrcaySalesInventorySystem.Models
 
         [ForeignKey("SupplierID")]
         public virtual Supplier? Supplier { get; set; } = null;
-
-        public Task<bool> Add()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> Delete()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool Exists()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> IsValid()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> Update()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
 

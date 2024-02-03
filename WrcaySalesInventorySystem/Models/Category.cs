@@ -10,9 +10,9 @@ using WrcaySalesInventorySystem.Data;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    public class Category //: IDataCommand
+    public class Category : INotifyPropertyChanged, IDataErrorInfo
     {
-        //private ApplicationDatabaseContext applicationDatabaseContext = new ApplicationDatabaseContext(null);
+        public string this[string columnName] => throw new System.NotImplementedException();
 
         [Key]
         public int CategoryId { get; set; }
@@ -21,7 +21,11 @@ namespace WrcaySalesInventorySystem.Models
         [MaxLength(50, ErrorMessage = "Category Name must be 50 characters or less.")]
         [Column(TypeName = "VARCHAR")]
         [DisplayName("Category Name")]
-        public string? CategoryName { get; set; }
+        public string? CategoryName { get { return CategoryName; }
+            set {
+
+            }
+        }
 
         [MaxLength(300, ErrorMessage = "Category Name must be 300 characters or less.")]
         [Column(TypeName = "VARCHAR")]
@@ -31,35 +35,8 @@ namespace WrcaySalesInventorySystem.Models
         public ICollection<Product>? Products { get; set; }
         public ICollection<SubCategory>? SubCategories { get; set; }
 
-        //public async Task<bool> Add()
-        //{
-        //    await applicationDatabaseContext.Categories.AddAsync(this);
-        //    int created = await applicationDatabaseContext.SaveChangesAsync();
-        //    return created > 0;
-        //}
+        public string Error => throw new System.NotImplementedException();
 
-        //public async Task<bool> Delete()
-        //{
-        //    await applicationDatabaseContext.Categories.AddAsync(this);
-        //    int created = await applicationDatabaseContext.SaveChangesAsync();
-        //    return created > 0;
-        //}
-
-        //public bool Exists()
-        //{
-        //    return applicationDatabaseContext.Categories.ToArray().Contains(this);
-        //}
-
-        //public Task<bool> IsValid()
-        //{
-        //    throw new System.NotImplementedException();
-        //}
-
-        //public async Task<bool> Update()
-        //{
-        //    applicationDatabaseContext.Categories.Update(this);
-        //    int created = await applicationDatabaseContext.SaveChangesAsync();
-        //    return created > 0;
-        //}
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\system\WrcaySalesInventorySystem\WrcaySalesInventorySystem\App.xaml
-1-1936226621
+91031542619
 
-25801311930
+351510392853
 229-1219087563
-Forms\MainWindow.xaml;
+Dialogs\CategoryDialog.xaml;Dialogs\DeliveryDialog.xaml;Dialogs\DiscountDialog.xaml;Dialogs\ProductDialog.xaml;Dialogs\SubCategoryDialog.xaml;Dialogs\SupplierDialog.xaml;Dialogs\TransactionDialog.xaml;Dialogs\UserDialog.xaml;Forms\MainWindow.xaml;
 
 False
 

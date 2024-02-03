@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WrcaySalesInventorySystem.Data;
 
-namespace SystemTesting
+namespace WrcaySalesInventorySystem.Classs.Base
 {
-    internal class Main
+    public class BaseProduct
     {
-
-
     }
 }

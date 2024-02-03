@@ -7,7 +7,7 @@ using WrcaySalesInventorySystem.Classs.Interface;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    public class Role : IDataCommand
+    public class Role
     {
         [Key]
         public int RoleID  { get; set; }
@@ -19,30 +19,5 @@ namespace WrcaySalesInventorySystem.Models
         public string? RoleName { get; set; }
 
         public ICollection<User>? Users { get; set; }
-
-        public Task<bool> Add()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> Delete()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool Exists()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> IsValid()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> Update()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -8,8 +8,10 @@ namespace WrcaySalesInventorySystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ApplicationDatabaseContext _databaseContext;
+        public MainWindow(ApplicationDatabaseContext databaseContext)
         {
+            _databaseContext = databaseContext;
             InitializeComponent();
         }
     }

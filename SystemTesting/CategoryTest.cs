@@ -13,9 +13,9 @@ namespace SystemTesting
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void CategoryTestForEmptyString()
         {
-            databaseContext.Categories.Add(new Category()
+            databaseContext.Categories.Add(
             {
                 CategoryName = "Jamari",
                 CategoryDescription = "Something"
