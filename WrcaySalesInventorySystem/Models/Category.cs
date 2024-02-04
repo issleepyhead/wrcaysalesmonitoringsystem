@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WrcaySalesInventorySystem.Models
 {
-    public class Category 
+    public class Category
     {
 
         [Key]

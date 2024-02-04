@@ -5,13 +5,13 @@ namespace WrcaySalesInventorySystem.Classs.Interface
 {
     internal interface IDataCommand
     {
-        Task<bool> Add();
-        Task<bool> Delete();
-        Task<bool> Update();
-        bool Exists();
+        Task<bool> Add(object data);
+        Task<bool> Delete(object data);
+        Task<bool> Update(object data);
+        bool Exists(object data);
 
         // For excel functions
-        Task<bool> IsValid();
+        Task<bool> IsValid(object data);
 
 
     }
