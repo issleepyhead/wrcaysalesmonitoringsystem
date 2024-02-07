@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\App.xaml
-91031542619
+11133444093
 
-33216522744
+42-536671217
 229928726288
-Dialogs\CategoryDialog.xaml;Dialogs\DeliveryDialog.xaml;Dialogs\DiscountDialog.xaml;Dialogs\ProductDialog.xaml;Dialogs\SubCategoryDialog.xaml;Dialogs\SupplierDialog.xaml;Dialogs\TransactionDialog.xaml;Dialogs\UserDialog.xaml;Forms\MainWindow.xaml;
+Dialogs\CategoryDialog.xaml;Dialogs\DeliveryDialog.xaml;Dialogs\DiscountDialog.xaml;Dialogs\ProductDialog.xaml;Dialogs\SubCategoryDialog.xaml;Dialogs\SupplierDialog.xaml;Dialogs\TransactionDialog.xaml;Dialogs\UserDialog.xaml;Forms\MainWindow.xaml;Resources\strings\strings.xaml;Resources\theme\colors.xaml;
 
 False
 

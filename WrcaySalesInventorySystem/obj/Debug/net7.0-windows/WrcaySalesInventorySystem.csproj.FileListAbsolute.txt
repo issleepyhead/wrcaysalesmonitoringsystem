@@ -148,3 +148,5 @@ D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\n
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\bin\Debug\net7.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\strings\strings.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\theme\colors.baml

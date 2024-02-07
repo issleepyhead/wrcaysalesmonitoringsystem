@@ -12,6 +12,7 @@
           "FluentValidation": "11.9.0",
           "HandyControls": "3.5.0",
           "Microsoft.EntityFrameworkCore": "7.0.15",
+          "Microsoft.EntityFrameworkCore.Design": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.15",
           "Microsoft.Extensions.DependencyInjection": "7.0.0"

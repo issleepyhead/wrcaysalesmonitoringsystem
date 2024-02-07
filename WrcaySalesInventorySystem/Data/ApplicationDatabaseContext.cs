@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using WrcaySalesInventorySystem.Models;
 using WrcaySalesInventorySystem.Properties;
 
 namespace WrcaySalesInventorySystem.Data
 {
-    public class ApplicationDatabaseContext : DbContext
+    public class ApplicationDatabaseContext : DbContext, IDesignTimeDbContextFactory<ApplicationDatabaseContext>
     {
 
         public DbSet<Category> Categories { get; set; }
@@ -23,9 +24,23 @@ namespace WrcaySalesInventorySystem.Data
             
         }
 
+        public ApplicationDatabaseContext()
+        {
+
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
                 .UseSqlServer(Settings.Default.wrcaydbConnectionString)
                 .UseSnakeCaseNamingConvention();
+
+        public ApplicationDatabaseContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDatabaseContext>();
+            optionsBuilder
+                .UseSqlServer(Settings.Default.wrcaydbConnectionString)
+                .UseSnakeCaseNamingConvention();
+            return new ApplicationDatabaseContext(optionsBuilder.Options);
+        }
     }
 }

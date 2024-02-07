@@ -52,5 +52,11 @@
     <Page Update="Dialogs\UserDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\strings\strings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\theme\colors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

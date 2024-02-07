@@ -1,6 +1,7 @@
 using WrcaySalesInventorySystem.Models;
 using WrcaySalesInventorySystem.Data;
 using Microsoft.EntityFrameworkCore;
+using WrcaySalesInventorySystem.ViewModel;
 
 namespace SystemTesting
 {
@@ -14,27 +15,27 @@ namespace SystemTesting
         }
 
         [TestMethod]
-        public void CategoryTestForEmptyString()
+        public async Task CategoryTestForEmptyString()
         {
-            databaseContext.Categories.Add(new Category
+            Category category = new()
             {
-                CategoryName = "Jamargsegesi",
-                CategoryDescription = "Somfrawfawethings"
-            });
-
-            Assert.IsFalse(databaseContext.SaveChanges() < 0, "Nag save pare!");
+                CategoryDescription = "Sample Description",
+                CategoryName = "Test"
+            };
+           
+            ViewModelCategory vmCategory = new ViewModelCategory(category, databaseContext);
+            bool res = await vmCategory.Add();
+            Assert.IsTrue(res, $"An error occured while adding the category {res}");
         }
 
-        //[TestMethod]
-        //public void CategoryTestForNullString()
-        //{
-        
-        //}
-
-        //[TestMethod]
-        //public void CategoryTestForNullCategory()
-        //{
-
-        //}
+        [TestMethod]
+        public async Task CategoryDelete()
+        {
+            var categories = databaseContext.Categories.ToArray<Category>();
+            Category category = categories.First();
+            databaseContext.Categories.Remove(category);
+            int res = await databaseContext.SaveChangesAsync();
+            Assert.IsTrue(res > 0, "An error occured");
+        }
     }
 }

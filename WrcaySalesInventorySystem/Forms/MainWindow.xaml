@@ -1,12 +1,37 @@
-﻿<Window x:Class="WrcaySalesInventorySystem.MainWindow"
+﻿<hc:Window x:Class="WrcaySalesInventorySystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WrcaySalesInventorySystem"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    
+    <!--#region Title Bar Buttons -->
+    <hc:Window.NonClientAreaContent>
+        <Grid Margin="2">
+            <hc:FlexPanel JustifyContent="FlexEnd">
+                <hc:ContextMenuButton x:Name="SettingsButton" Style="{StaticResource ButtonCustom}">
+                    <Image Source="pack://application:,,,/Resources/ic_settings.png" Height="18" Width="18"/>
+                    <hc:ContextMenuButton.ContextMenu>
+
+                        <ContextMenu hc:MenuAttach.AnimationMode="Right2LeftWithFade" Name="SettingsMenu">
+                            <MenuItem Name="AboutButtonItem" Header="About"/>
+                            <MenuItem Name="UpdateButtonItem" Header="Theme"/>
+                        </ContextMenu>
+                    </hc:ContextMenuButton.ContextMenu>
+                </hc:ContextMenuButton>
+            </hc:FlexPanel>
+        </Grid>
+    </hc:Window.NonClientAreaContent>
+    <!--#endregion-->
+    
+
     <Grid>
 
     </Grid>
-</Window>
+</hc:Window>
