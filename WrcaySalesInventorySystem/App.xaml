@@ -11,6 +11,8 @@
                 <hc:Theme/>
 
                 <ResourceDictionary Source="/Resources/strings/strings.xaml"/>
+                <ResourceDictionary Source="/Resources/styles/style.xaml"/>
+                <ResourceDictionary Source="/Resources/colors/colors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

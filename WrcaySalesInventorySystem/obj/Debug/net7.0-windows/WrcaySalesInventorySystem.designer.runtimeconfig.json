@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Clancy\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Clancy\\.nuget\\packages"
+      "C:\\Users\\Acer\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Acer\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Reflection.NullabilityInfoContext.IsSupported": true,

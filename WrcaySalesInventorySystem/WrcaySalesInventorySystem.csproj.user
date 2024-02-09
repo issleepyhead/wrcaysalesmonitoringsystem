@@ -2,6 +2,39 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="custom\AccountPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\AuditTrailPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\CategoryPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\DeliveryPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\InventoryPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\MaintenancePanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\POSPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\ProductsPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\ReportsPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\SupplierPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="custom\TransactionPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialogs\CategoryDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +61,39 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="custom\AccountPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\AuditTrailPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\CategoryPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\DeliveryPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\InventoryPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\MaintenancePanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\POSPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\ProductsPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\ReportsPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\SupplierPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="custom\TransactionPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialogs\CategoryDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -52,7 +118,13 @@
     <Page Update="Dialogs\UserDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\colors\colors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\strings\strings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\styles\style.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\theme\colors.xaml">

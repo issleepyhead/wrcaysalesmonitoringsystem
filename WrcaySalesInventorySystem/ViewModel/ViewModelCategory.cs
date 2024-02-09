@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
 using WrcaySalesInventorySystem.Classs.Interface;
-using WrcaySalesInventorySystem.Data;
-using WrcaySalesInventorySystem.Models;
 
 namespace WrcaySalesInventorySystem.ViewModel
 {

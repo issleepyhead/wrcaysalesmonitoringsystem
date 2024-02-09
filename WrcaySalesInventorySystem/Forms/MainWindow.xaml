@@ -7,9 +7,11 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="450"
-        Width="800">
+        Title="WRCay Sales And Inventory System"
+        Height="600"
+        Width="1000"
+        MinHeight="600"
+        MinWidth="1000">
     
     <!--#region Title Bar Buttons -->
     <hc:Window.NonClientAreaContent>
@@ -29,9 +31,34 @@
         </Grid>
     </hc:Window.NonClientAreaContent>
     <!--#endregion-->
-    
-
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                
+            </Grid>
+            
+            <StackPanel Grid.Row="1">
+                
+            </StackPanel>
+            
+            <Grid Grid.Row="2">
+                <Button>
 
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            
+        </Grid>
     </Grid>
 </hc:Window>
