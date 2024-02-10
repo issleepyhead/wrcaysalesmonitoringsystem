@@ -33,30 +33,31 @@
     <!--#endregion-->
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="230"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="140"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="60"/>
-            </Grid.RowDefinitions>
-            
-            <Grid Grid.Row="0">
-                
-            </Grid>
-            
-            <StackPanel Grid.Row="1">
-                
-            </StackPanel>
-            
-            <Grid Grid.Row="2">
-                <Button>
-
-                </Button>
-            </Grid>
-        </Grid>
+        <hc:SideMenu Grid.Column="0">
+            <hc:SideMenuItem Header="Overview">
+                <!--<hc:SideMenuItem.Icon>
+                    <Image Source="/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Overview.png" Width="24" Height="24"/>
+                </hc:SideMenuItem.Icon>-->
+                <hc:SideMenuItem Header="Summary" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <!--<hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf2cb;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </hc:SideMenuItem.Icon>-->
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Dashboards" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <!--<hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf246;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </hc:SideMenuItem.Icon>-->
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Wiki" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <!--<hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xe82d;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </hc:SideMenuItem.Icon>-->
+                </hc:SideMenuItem>
+            </hc:SideMenuItem>
+        </hc:SideMenu>
         <Grid Grid.Column="1">
             
         </Grid>

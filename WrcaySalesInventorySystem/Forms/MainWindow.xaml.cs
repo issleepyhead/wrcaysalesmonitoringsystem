@@ -1,14 +1,13 @@
 ﻿using System.Windows;
-using WrcaySalesInventorySystem.Data;
 
 namespace WrcaySalesInventorySystem
 {
     public partial class MainWindow : HandyControl.Controls.Window, System.Windows.Markup.IComponentConnector
     {
-        private readonly ApplicationDatabaseContext _databaseContext;
-        public MainWindow(ApplicationDatabaseContext databaseContext)
+        //private readonly ApplicationDatabaseContext _databaseContext;
+        public MainWindow(/*ApplicationDatabaseContext databaseContext*/)
         {
-            _databaseContext = databaseContext;
+            //_databaseContext = databaseContext;
             InitializeComponent();
         }
     }

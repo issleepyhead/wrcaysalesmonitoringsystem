@@ -2,37 +2,37 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="custom\AccountPanel.xaml.cs">
+    <Compile Update="Custom\AccountPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\AuditTrailPanel.xaml.cs">
+    <Compile Update="Custom\AuditTrailPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\CategoryPanel.xaml.cs">
+    <Compile Update="Custom\CategoryPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\DeliveryPanel.xaml.cs">
+    <Compile Update="Custom\DeliveryPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\InventoryPanel.xaml.cs">
+    <Compile Update="Custom\InventoryPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\MaintenancePanel.xaml.cs">
+    <Compile Update="Custom\MaintenancePanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\POSPanel.xaml.cs">
+    <Compile Update="Custom\POSPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\ProductsPanel.xaml.cs">
+    <Compile Update="Custom\ProductsPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\ReportsPanel.xaml.cs">
+    <Compile Update="Custom\ReportsPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\SupplierPanel.xaml.cs">
+    <Compile Update="Custom\SupplierPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="custom\TransactionPanel.xaml.cs">
+    <Compile Update="Custom\TransactionPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialogs\CategoryDialog.xaml.cs">
@@ -61,37 +61,37 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="custom\AccountPanel.xaml">
+    <Page Update="Custom\AccountPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\AuditTrailPanel.xaml">
+    <Page Update="Custom\AuditTrailPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\CategoryPanel.xaml">
+    <Page Update="Custom\CategoryPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\DeliveryPanel.xaml">
+    <Page Update="Custom\DeliveryPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\InventoryPanel.xaml">
+    <Page Update="Custom\InventoryPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\MaintenancePanel.xaml">
+    <Page Update="Custom\MaintenancePanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\POSPanel.xaml">
+    <Page Update="Custom\POSPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\ProductsPanel.xaml">
+    <Page Update="Custom\ProductsPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\ReportsPanel.xaml">
+    <Page Update="Custom\ReportsPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\SupplierPanel.xaml">
+    <Page Update="Custom\SupplierPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="custom\TransactionPanel.xaml">
+    <Page Update="Custom\TransactionPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\CategoryDialog.xaml">

@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using WrcaySalesInventorySystem.Data;
+//using WrcaySalesInventorySystem.Data;
 
 namespace WrcaySalesInventorySystem.Classs.Interface
 {
