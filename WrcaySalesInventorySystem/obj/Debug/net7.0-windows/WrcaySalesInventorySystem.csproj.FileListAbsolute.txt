@@ -286,3 +286,4 @@ D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\n
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\SupplierPanel.baml
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\TransactionPanel.baml
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\imgs\img.baml
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\imgs\img.baml

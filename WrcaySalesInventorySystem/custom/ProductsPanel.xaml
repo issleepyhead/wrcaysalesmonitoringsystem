@@ -39,7 +39,6 @@
                         <Button x:Name="AddButton" Foreground="#fff" FontSize="9"
                                 hc:BorderElement.CornerRadius="0"
                                 Content="Add"
-                                hc:IconElement.Geometry="{StaticResource ic_add}"
                                 hc:IconElement.Height="12"
                                 hc:IconElement.Width="12"
                                 Height="28"
@@ -63,10 +62,6 @@
                       hc:Empty.ShowEmpty="True"
                       Padding="0" RowHeight="30">
                 <DataGrid.Columns>
-                    <DataGridTextColumn FontSize="13"
-                                    Header="ID"
-                                    Binding="{Binding ID}"
-                                    Width="60"/>
                     <DataGridTextColumn FontSize="13"
                                     Header="PRODUCT NAME"
                                     Binding="{Binding PRODUCT_NAME}"

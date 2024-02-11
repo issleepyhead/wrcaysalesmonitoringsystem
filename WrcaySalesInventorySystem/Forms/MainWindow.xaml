@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WrcaySalesInventorySystem"
+        xmlns:panels="clr-namespace:WrcaySalesInventorySystem.custom"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
@@ -13,7 +14,7 @@
         WindowState="Maximized">
     
     <!--#region Title Bar Buttons -->
-    <hc:Window.NonClientAreaContent>
+    <hc:Window.NonClientAreaContent >
         <Grid Margin="2">
             <hc:FlexPanel JustifyContent="FlexEnd">
                 <hc:ContextMenuButton x:Name="SettingsButton" Style="{StaticResource ButtonCustom}">
@@ -35,7 +36,10 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <hc:SideMenu Grid.Column="0" x:Name="SideMenuLeft">
+        <hc:SideMenu Grid.Column="0"
+                     x:Name="SideMenuLeft"
+                     hc:BorderThickness="0 0 .2 0"
+                     hc:BorderBrush="gray">
             <hc:SideMenuItem>
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Overview" Padding="0" Margin="20 0 0 0" FontSize="14"/>
@@ -67,18 +71,90 @@
                 </hc:SideMenuItem>
                 <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
                     <hc:SideMenuItem.Header>
+                        <TextBlock Text="Sub Categories" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
                         <TextBlock Text="Suppliers" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
+            </hc:SideMenuItem>
+            <hc:SideMenuItem>
+                <hc:SideMenuItem.Header>
+                    <TextBlock Text="POS" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                </hc:SideMenuItem.Header>
+                <!--<hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Stocks" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Delivery" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>-->
+            </hc:SideMenuItem>
+            <hc:SideMenuItem>
+                <hc:SideMenuItem.Header>
+                    <TextBlock Text="Inventory" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                </hc:SideMenuItem.Header>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Stocks" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Delivery" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+            </hc:SideMenuItem>
+            <hc:SideMenuItem>
+                <hc:SideMenuItem.Header>
+                    <TextBlock Text="Reports" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                </hc:SideMenuItem.Header>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Transaction Report" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Stock In Report" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Expenses" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+            </hc:SideMenuItem>
+            <hc:SideMenuItem>
+                <hc:SideMenuItem.Header>
+                    <TextBlock Text="Settings" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                </hc:SideMenuItem.Header>
                 <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Users" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
+                <hc:SideMenuItem>
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Database" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
             </hc:SideMenuItem>
         </hc:SideMenu>
         <Grid Grid.Column="1">
-            
+            <panels:AccountPanel/>
+            <panels:AuditTrailPane Visibility="Collapsed"/>
+            <panels:CategoryPanel Visibility="Collapsed"/>
+            <panels:DeliveryPanel Visibility="Collapsed"/>
+            <panels:InventoryPanel Visibility="Collapsed"/>
+            <panels:ProductsPanel Visibility="Collapsed"/>
+            <panels:SupplierPanel Visibility="Collapsed"/>
+            <panels:TransactionPanel Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </hc:Window>

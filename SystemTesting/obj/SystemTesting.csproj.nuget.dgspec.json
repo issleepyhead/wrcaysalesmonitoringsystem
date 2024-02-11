@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj": {}
+    "D:\\system\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj": {}
   },
   "projects": {
-    "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj": {
+    "D:\\system\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj",
+        "projectUniqueName": "D:\\system\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj",
         "projectName": "SystemTesting",
-        "projectPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj",
-        "packagesPath": "C:\\Users\\Clancy\\.nuget\\packages\\",
-        "outputPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\SystemTesting\\obj\\",
+        "projectPath": "D:\\system\\wrcaysalesmonitoringsystem\\SystemTesting\\SystemTesting.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "D:\\system\\wrcaysalesmonitoringsystem\\SystemTesting\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Clancy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
-                "projectPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj"
+              "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
+                "projectPath": "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj"
               }
             }
           }
@@ -83,21 +83,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
+    "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
+        "projectUniqueName": "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
         "projectName": "WrcaySalesInventorySystem",
-        "projectPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
-        "packagesPath": "C:\\Users\\Clancy\\.nuget\\packages\\",
-        "outputPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\obj\\",
+        "projectPath": "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Clancy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -179,7 +179,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

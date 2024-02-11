@@ -40,8 +40,7 @@
                                         Command="hc:ControlCommands.Close"
                                         HorizontalAlignment="Right"
                                         Foreground="{DynamicResource PrimaryTextBrush}"
-                                        Style="{StaticResource ButtonIcon}"
-                                        hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                                        Style="{StaticResource ButtonIcon}"/>
                             </Grid>
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
@@ -108,7 +107,6 @@
                                 <hc:Poptip Content="Filter" PlacementType="TopRight"/>
                             </hc:Poptip.Instance>
                             <hc:ImageBlock Name="BottomContainerInventoryImage"
-                            Source="{StaticResource ic_filter}"
                             Width="22"
                             Height="22"
                             VerticalAlignment="Center"
@@ -137,7 +135,6 @@
                     <Button x:Name="AddButton" Foreground="{StaticResource ApplicationLight}" FontSize="9"
                         hc:BorderElement.CornerRadius="0"
                         Content="New"
-                        hc:IconElement.Geometry="{StaticResource ic_add}"
                         hc:IconElement.Height="12"
                         hc:IconElement.Width="12"
                         Height="30"

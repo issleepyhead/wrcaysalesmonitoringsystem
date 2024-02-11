@@ -35,7 +35,6 @@
                 <Button x:Name="AddButton" Foreground="{StaticResource ApplicationLight}" FontSize="9"
                         hc:BorderElement.CornerRadius="0"
                         Content="New Category"
-                        hc:IconElement.Geometry="{StaticResource ic_add}"
                         hc:IconElement.Height="12"
                         hc:IconElement.Width="12"
                         Height="30"
@@ -48,7 +47,6 @@
                 <Button x:Name="AddSubButton" Foreground="{StaticResource ApplicationLight}" FontSize="9"
                         hc:BorderElement.CornerRadius="0"
                         Content="New Sub Category"
-                        hc:IconElement.Geometry="{StaticResource ic_add}"
                         hc:IconElement.Height="12"
                         hc:IconElement.Width="12"
                         Height="30"
@@ -74,10 +72,6 @@
                   Grid.Row="1"
                   Margin="10 0 10 10" RowHeight="30">
             <DataGrid.Columns>
-                <DataGridTextColumn FontSize="13"
-                                    Header="ID"
-                                    Binding="{Binding ID}"
-                                    Width="60"/>
                 <DataGridTextColumn FontSize="13"
                                     Header="CATEGORY NAME"
                                     Binding="{Binding CATEGORY_NAME}"
