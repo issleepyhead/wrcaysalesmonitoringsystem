@@ -23,7 +23,7 @@ namespace WrcaySalesInventorySystem
             //services.AddDbContext<ApplicationDatabaseContext>(options => {
             //    options.UseSqlServer(Settings.Default.wrcaydbConnectionString);
             //});
-            //services.AddSingleton<MainWindow>();
+            services.AddSingleton<MainWindow>();
         }
 
         private void OnStartup(Object sender, StartupEventArgs e)

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {}
+    "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {}
   },
   "projects": {
-    "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
+    "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
+        "projectUniqueName": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
         "projectName": "WrcaySalesInventorySystem",
-        "projectPath": "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\obj\\",
+        "projectPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\WrcaySalesInventorySystem.csproj",
+        "packagesPath": "C:\\Users\\Clancy\\.nuget\\packages\\",
+        "outputPath": "D:\\SCHOOL FILES\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Clancy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,7 +96,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -285,4 +285,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="TextBlockFabricIcons" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+    </Style>
 </ResourceDictionary>

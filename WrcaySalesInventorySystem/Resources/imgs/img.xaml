@@ -1,0 +1,5 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <BitmapImage x:Key="ic_darkdashboard" UriSource="/Resources/imgs/ic_darkdashboard.png"/>
+    <BitmapImage x:Key="ic_darksakes" UriSource="/Resources/imgs/ic_darksales.png"/>
+</ResourceDictionary>

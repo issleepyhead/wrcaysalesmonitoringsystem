@@ -260,3 +260,29 @@ D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\TransactionPanel.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\colors\colors.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\colors\colors.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\styles\style.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\AccountPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\AuditTrailPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\CategoryPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\DeliveryPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\InventoryPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\MaintenancePanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\POSPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\ProductsPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\ReportsPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\SupplierPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\TransactionPanel.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\AccountPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\AuditTrailPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\CategoryPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\DeliveryPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\InventoryPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\MaintenancePanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\POSPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\ProductsPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\ReportsPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\SupplierPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\TransactionPanel.baml
+D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\imgs\img.baml

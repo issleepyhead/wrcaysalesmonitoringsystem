@@ -121,6 +121,9 @@
     <Page Update="Resources\colors\colors.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\imgs\img.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\strings\strings.xaml">
       <SubType>Designer</SubType>
     </Page>

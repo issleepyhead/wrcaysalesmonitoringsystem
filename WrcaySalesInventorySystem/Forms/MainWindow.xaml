@@ -10,8 +10,7 @@
         Title="WRCay Sales And Inventory System"
         Height="600"
         Width="1000"
-        MinHeight="600"
-        MinWidth="1000">
+        WindowState="Maximized">
     
     <!--#region Title Bar Buttons -->
     <hc:Window.NonClientAreaContent>
@@ -33,28 +32,48 @@
     <!--#endregion-->
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <hc:SideMenu Grid.Column="0">
-            <hc:SideMenuItem Header="Overview">
-                <!--<hc:SideMenuItem.Icon>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Overview.png" Width="24" Height="24"/>
-                </hc:SideMenuItem.Icon>-->
-                <hc:SideMenuItem Header="Summary" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
-                    <!--<hc:SideMenuItem.Icon>
-                        <TextBlock Text="&#xf2cb;" Style="{StaticResource TextBlockFabricIcons}"/>
-                    </hc:SideMenuItem.Icon>-->
+        <hc:SideMenu Grid.Column="0" x:Name="SideMenuLeft">
+            <hc:SideMenuItem>
+                <hc:SideMenuItem.Header>
+                    <TextBlock Text="Overview" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                </hc:SideMenuItem.Header>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Dashboard" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Header="Dashboards" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
-                    <!--<hc:SideMenuItem.Icon>
-                        <TextBlock Text="&#xf246;" Style="{StaticResource TextBlockFabricIcons}"/>
-                    </hc:SideMenuItem.Icon>-->
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Sales Summary" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Header="Wiki" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
-                    <!--<hc:SideMenuItem.Icon>
-                        <TextBlock Text="&#xe82d;" Style="{StaticResource TextBlockFabricIcons}"/>
-                    </hc:SideMenuItem.Icon>-->
+            </hc:SideMenuItem>
+            <hc:SideMenuItem>
+                <hc:SideMenuItem.Header>
+                    <TextBlock Text="Maintenance" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                </hc:SideMenuItem.Header>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Products" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Categories" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Suppliers" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="Users" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
             </hc:SideMenuItem>
         </hc:SideMenu>
