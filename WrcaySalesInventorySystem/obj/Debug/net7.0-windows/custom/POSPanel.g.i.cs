@@ -53,7 +53,7 @@ namespace WrcaySalesInventorySystem.custom {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WrcaySalesInventorySystem;component/custom/pospanel.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WrcaySalesInventorySystem;V1.0.0.0;component/custom/pospanel.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Custom\POSPanel.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

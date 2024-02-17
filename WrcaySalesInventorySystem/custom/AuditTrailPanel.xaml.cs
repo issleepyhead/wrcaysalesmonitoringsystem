@@ -18,9 +18,9 @@ namespace WrcaySalesInventorySystem.custom
     /// <summary>
     /// Interaction logic for AuditTrailPane.xaml
     /// </summary>
-    public partial class AuditTrailPane : UserControl
+    public partial class AuditTrailPanel : UserControl
     {
-        public AuditTrailPane()
+        public AuditTrailPanel()
         {
             InitializeComponent();
         }

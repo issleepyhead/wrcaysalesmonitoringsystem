@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WrcaySalesInventorySystem"
         xmlns:panels="clr-namespace:WrcaySalesInventorySystem.custom"
+        xmlns:viewmodels="clr-namespace:WrcaySalesInventorySystem.ViewModel"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
@@ -40,47 +41,44 @@
                      x:Name="SideMenuLeft"
                      hc:BorderThickness="0 0 .2 0"
                      hc:BorderBrush="gray">
-            <hc:SideMenuItem>
+            <hc:SideMenuItem Selected="SelectedPanel">
                 <hc:SideMenuItem.Header>
-                    <TextBlock Text="Overview" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                    <TextBlock Text="Dashboard" Padding="0" Margin="20 0 0 0" FontSize="14"/>
                 </hc:SideMenuItem.Header>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
-                    <hc:SideMenuItem.Header>
-                        <TextBlock Text="Dashboard" Margin="30 0 0 0" FontSize="14"/>
-                    </hc:SideMenuItem.Header>
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
-                    <hc:SideMenuItem.Header>
-                        <TextBlock Text="Sales Summary" Margin="30 0 0 0" FontSize="14"/>
-                    </hc:SideMenuItem.Header>
-                </hc:SideMenuItem>
             </hc:SideMenuItem>
+            
             <hc:SideMenuItem>
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Maintenance" Padding="0" Margin="20 0 0 0" FontSize="14"/>
                 </hc:SideMenuItem.Header>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Products" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Categories" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Sub Categories" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Suppliers" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
+                <hc:SideMenuItem Selected="SelectedPanel">
+                    <hc:SideMenuItem.Header>
+                        <TextBlock Text="VAT" Margin="30 0 0 0" FontSize="14"/>
+                    </hc:SideMenuItem.Header>
+                </hc:SideMenuItem>
             </hc:SideMenuItem>
-            <hc:SideMenuItem>
+
+            <hc:SideMenuItem Selected="SelectedPanel">
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="POS" Padding="0" Margin="20 0 0 0" FontSize="14"/>
                 </hc:SideMenuItem.Header>
@@ -95,66 +93,70 @@
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>-->
             </hc:SideMenuItem>
+            
             <hc:SideMenuItem>
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Inventory" Padding="0" Margin="20 0 0 0" FontSize="14"/>
                 </hc:SideMenuItem.Header>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Stocks" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Delivery" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
             </hc:SideMenuItem>
+            
             <hc:SideMenuItem>
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Reports" Padding="0" Margin="20 0 0 0" FontSize="14"/>
                 </hc:SideMenuItem.Header>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Transaction Report" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Stock In Report" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Expenses" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
             </hc:SideMenuItem>
-            <hc:SideMenuItem>
+            
+            <hc:SideMenuItem x:Name="SettingsViewButton">
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Settings" Padding="0" Margin="20 0 0 0" FontSize="14"/>
                 </hc:SideMenuItem.Header>
-                <hc:SideMenuItem Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}">
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Users" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem>
+                <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
-                        <TextBlock Text="Database" Padding="0" Margin="20 0 0 0" FontSize="14"/>
+                        <TextBlock Text="Database" Padding="0" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
             </hc:SideMenuItem>
         </hc:SideMenu>
+
         <Grid Grid.Column="1">
-            <panels:AccountPanel/>
-            <panels:AuditTrailPane Visibility="Collapsed"/>
-            <panels:CategoryPanel Visibility="Collapsed"/>
-            <panels:DeliveryPanel Visibility="Collapsed"/>
-            <panels:InventoryPanel Visibility="Collapsed"/>
-            <panels:ProductsPanel Visibility="Collapsed"/>
-            <panels:SupplierPanel Visibility="Collapsed"/>
-            <panels:TransactionPanel Visibility="Collapsed"/>
+            <panels:AccountPanel x:Name="AccountPanel" Padding="20"/>
+            <panels:AuditTrailPanel x:Name="AuditTralPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:CategoryPanel x:Name="CategoryPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:DeliveryPanel x:Name="DeliveryPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:InventoryPanel x:Name="InventoryPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:ProductsPanel x:Name="ProductsPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:SupplierPanel x:Name="SupplierPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:TransactionPanel x:Name="TransactionPanel" Visibility="Collapsed" Padding="20"/>
         </Grid>
     </Grid>
 </hc:Window>

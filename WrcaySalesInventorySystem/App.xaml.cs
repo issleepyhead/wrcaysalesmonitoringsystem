@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
-//using WrcaySalesInventorySystem.Data;
+using WrcaySalesInventorySystem.Models;
 using WrcaySalesInventorySystem.Properties;
 
 namespace WrcaySalesInventorySystem
@@ -20,9 +20,10 @@ namespace WrcaySalesInventorySystem
 
         private void ConfigureServices(ServiceCollection services)
         {
-            //services.AddDbContext<ApplicationDatabaseContext>(options => {
-            //    options.UseSqlServer(Settings.Default.wrcaydbConnectionString);
-            //});
+            services.AddDbContext<ApplicationDatabaseContext>(options =>
+            {
+                options.UseSqlServer(Settings.Default.wrcaydbConenction2);
+            });
             services.AddSingleton<MainWindow>();
         }
 

@@ -42,7 +42,7 @@ public partial class ApplicationDatabaseContext: DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-        => optionsBuilder.UseSqlServer(Settings.Default.wrcaydbConnectionString);
+        => optionsBuilder.UseSqlServer(Settings.Default.wrcaydbConenction2);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

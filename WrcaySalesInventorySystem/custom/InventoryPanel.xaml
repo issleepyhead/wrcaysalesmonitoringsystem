@@ -7,7 +7,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="{StaticResource ApplicationLight}">
+    <Grid>
         <hc:TabControl Grid.Row="2"
                        ShowCloseButton="False"
                        IsDraggable="False"
