@@ -9,6 +9,7 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
+        ShowMaxButton="False"
         Title="WRCay Sales And Inventory System"
         Height="600"
         Width="1000"

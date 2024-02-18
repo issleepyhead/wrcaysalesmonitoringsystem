@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using WrcaySalesInventorySystem.Properties;
 
 namespace WrcaySalesInventorySystem.Models;
 
-public partial class ApplicationDatabaseContext: DbContext
+public partial class ApplicationDatabaseContext : DbContext
 {
     public ApplicationDatabaseContext()
     {
@@ -20,11 +19,11 @@ public partial class ApplicationDatabaseContext: DbContext
 
     public virtual DbSet<Tbldelivery> Tbldeliveries { get; set; }
 
+    public virtual DbSet<Tbldiscount> Tbldiscounts { get; set; }
+
     public virtual DbSet<Tblinventory> Tblinventories { get; set; }
 
     public virtual DbSet<Tbllog> Tbllogs { get; set; }
-
-    public virtual DbSet<Tblnotifstatus> Tblnotifstatuses { get; set; }
 
     public virtual DbSet<Tblproduct> Tblproducts { get; set; }
 
@@ -40,9 +39,11 @@ public partial class ApplicationDatabaseContext: DbContext
 
     public virtual DbSet<Tbluser> Tblusers { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public virtual DbSet<Tblvat> Tblvats { get; set; }
 
-        => optionsBuilder.UseSqlServer(Settings.Default.wrcaydbConenction2);
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\system\\wrcaysalesmonitoringsystem\\WrcaySalesInventorySystem\\wrcaysystemdb.mdf;Integrated Security=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -109,6 +110,20 @@ public partial class ApplicationDatabaseContext: DbContext
                 .HasConstraintName("FK__tbldelive__suppl__7F2BE32F");
         });
 
+        modelBuilder.Entity<Tbldiscount>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__tbldisco__3213E83FB70121F8");
+
+            entity.ToTable("tbldiscount");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.DiscountName)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("discount_name");
+            entity.Property(e => e.DiscountValue).HasColumnName("discount_value");
+        });
+
         modelBuilder.Entity<Tblinventory>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3213E83F2DCC09C4");
@@ -161,19 +176,6 @@ public partial class ApplicationDatabaseContext: DbContext
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("FK__tbllogs__user_id__51300E55");
-        });
-
-        modelBuilder.Entity<Tblnotifstatus>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__tblnotif__3213E83F5A2793F4");
-
-            entity.ToTable("tblnotifstatus");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.StatusName)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("status_name");
         });
 
         modelBuilder.Entity<Tblproduct>(entity =>
@@ -269,7 +271,7 @@ public partial class ApplicationDatabaseContext: DbContext
 
         modelBuilder.Entity<Tbltransaction>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3213E83F84DC921A");
+            entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3213E83F5536B6CF");
 
             entity.ToTable("tbltransactions");
 
@@ -278,32 +280,36 @@ public partial class ApplicationDatabaseContext: DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("date")
                 .HasColumnName("date_added");
+            entity.Property(e => e.DiscountId).HasColumnName("discount_id");
             entity.Property(e => e.InvoiceNumber)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("invoice_number");
             entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
-            entity.Property(e => e.StatusId)
-                .HasDefaultValueSql("((1))")
-                .HasColumnName("status_id");
             entity.Property(e => e.TotalAmount).HasColumnName("total_amount");
             entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.VatId).HasColumnName("vat_id");
+
+            entity.HasOne(d => d.Discount).WithMany(p => p.Tbltransactions)
+                .HasForeignKey(d => d.DiscountId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__tbltransa__disco__4FF1D159");
 
             entity.HasOne(d => d.Product).WithMany(p => p.Tbltransactions)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__tbltransa__produ__147C05D0");
-
-            entity.HasOne(d => d.Status).WithMany(p => p.Tbltransactions)
-                .HasForeignKey(d => d.StatusId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__tbltransa__statu__1F83A428");
+                .HasConstraintName("FK__tbltransa__produ__4E0988E7");
 
             entity.HasOne(d => d.User).WithMany(p => p.Tbltransactions)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__tbltransa__user___0F624AF8");
+                .HasConstraintName("FK__tbltransa__user___4D1564AE");
+
+            entity.HasOne(d => d.Vat).WithMany(p => p.Tbltransactions)
+                .HasForeignKey(d => d.VatId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__tbltransa__vat_i__4EFDAD20");
         });
 
         modelBuilder.Entity<Tbluser>(entity =>
@@ -349,6 +355,20 @@ public partial class ApplicationDatabaseContext: DbContext
                 .HasForeignKey(d => d.RoleId)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("FK__tblusers__role_i__46E78A0C");
+        });
+
+        modelBuilder.Entity<Tblvat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__tblvat__3213E83F567972C8");
+
+            entity.ToTable("tblvat");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.VatName)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("vat_name");
+            entity.Property(e => e.VatValue).HasColumnName("vat_value");
         });
 
         OnModelCreatingPartial(modelBuilder);

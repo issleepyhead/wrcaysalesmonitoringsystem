@@ -8,13 +8,13 @@
              mc:Ignorable="d" 
              Width="500">
 
-    <Grid>
+    <Grid Background="{StaticResource ApplicationLight}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <hc:SimplePanel Background="{StaticResource ApplicationDimBlue}">
+        <hc:SimplePanel Background="{StaticResource ApplicationPrimaryDark}">
             <TextBlock Text="Supplier"
                        Foreground="{StaticResource ApplicationLight}"
                        FontSize="24"

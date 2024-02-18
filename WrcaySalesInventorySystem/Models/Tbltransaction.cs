@@ -17,13 +17,17 @@ public partial class Tbltransaction
 
     public double TotalAmount { get; set; }
 
+    public int DiscountId { get; set; }
+
+    public int VatId { get; set; }
+
     public DateTime DateAdded { get; set; }
 
-    public int StatusId { get; set; }
+    public virtual Tbldiscount Discount { get; set; } = null!;
 
     public virtual Tblproduct? Product { get; set; }
 
-    public virtual Tblnotifstatus Status { get; set; } = null!;
-
     public virtual Tbluser? User { get; set; }
+
+    public virtual Tblvat Vat { get; set; } = null!;
 }

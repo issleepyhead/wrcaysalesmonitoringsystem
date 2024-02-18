@@ -31,7 +31,7 @@
                            DataCountPerPage="30"
                            VerticalAlignment="Center"
                            Margin="0 0 10 0"
-                           hc:BorderElement.CornerRadius="0"/>
+                           hc:BorderElement.CornerRadius="0" PageUpdated="Pagination_PageUpdated"/>
                 <Button x:Name="AddButton" Foreground="{StaticResource ApplicationLight}" FontSize="9"
                         hc:BorderElement.CornerRadius="0"
                         Content="New Category"
@@ -43,20 +43,7 @@
                         BorderThickness="0"
                         Background="{StaticResource ApplicationPrimaryDark}"
                         VerticalAlignment="Center"
-                        Grid.Column="1"/>
-                <Button x:Name="AddSubButton" Foreground="{StaticResource ApplicationLight}" FontSize="9"
-                        hc:BorderElement.CornerRadius="0"
-                        Content="New Sub Category"
-                        hc:IconElement.Height="12"
-                        hc:IconElement.Width="12"
-                        Height="30"
-                        Width="110"
-                        Padding="0"
-                        BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"
-                        VerticalAlignment="Center"
-                        Grid.Column="1"
-                        Margin="8 0 0 0"/>
+                        Grid.Column="1" Click="AddButton_Click"/>
             </StackPanel>
         </hc:FlexPanel>
         <DataGrid x:Name="CategoriesDataGridView"
@@ -70,15 +57,15 @@
                   AutoGenerateColumns="False"
                   Grid.ColumnSpan="2"
                   Grid.Row="1"
-                  Margin="10 0 10 10" RowHeight="30">
+                  Margin="10 0 10 10" RowHeight="30" SelectionChanged="CategoriesDataGridView_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="13"
                                     Header="CATEGORY NAME"
-                                    Binding="{Binding CATEGORY_NAME}"
+                                    Binding="{Binding CategoryName}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
                                     Header="DESCRIPTION"
-                                    Binding="{Binding DESCRIPTION}"
+                                    Binding="{Binding CategoryDescription}"
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

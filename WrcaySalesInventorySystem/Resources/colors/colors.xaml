@@ -6,6 +6,7 @@
     <SolidColorBrush x:Key="ApplicationLight" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="ApplicationPrimaryBlue" Color="#0CAFFF"/>
 
+
     <!-- Dark Pallete -->
     <SolidColorBrush x:Key="ApplicationPrimaryDark" Color="#776B5D"/>
     <SolidColorBrush x:Key="ApplicationDark" Color="#0F0F0F"/>

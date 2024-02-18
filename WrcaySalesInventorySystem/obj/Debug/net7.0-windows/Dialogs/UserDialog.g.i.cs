@@ -145,7 +145,7 @@ namespace WrcaySalesInventorySystem.Dialogs {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WrcaySalesInventorySystem;V1.0.0.0;component/dialogs/userdialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WrcaySalesInventorySystem;component/dialogs/userdialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Dialogs\UserDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

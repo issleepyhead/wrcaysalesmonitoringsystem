@@ -9,16 +9,16 @@ namespace WrcaySalesInventorySystem
 {
     public partial class App : Application
     {
-        private ServiceProvider serviceProvider;
+        private readonly ServiceProvider serviceProvider;
 
         public App()
         {
-            ServiceCollection services = new ServiceCollection();
+            ServiceCollection services = new();
             ConfigureServices(services);
             serviceProvider = services.BuildServiceProvider();
         }
 
-        private void ConfigureServices(ServiceCollection services)
+        private static void ConfigureServices(ServiceCollection services)
         {
             services.AddDbContext<ApplicationDatabaseContext>(options =>
             {

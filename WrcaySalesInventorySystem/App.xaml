@@ -7,7 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <hc:ThemeResources RequestedTheme="Dark" AccentColor="LightSlateGray"/>
+                <hc:ThemeResources/>
                 <hc:Theme/>
 
                 <ResourceDictionary Source="/Resources/strings/strings.xaml"/>

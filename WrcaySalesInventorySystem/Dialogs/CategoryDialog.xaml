@@ -7,13 +7,13 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" 
              Width="500">
-    <Grid Background="{StaticResource ApplicationPrimaryLight}">
+    <Grid Background="{StaticResource ApplicationLight}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <hc:SimplePanel Background="{StaticResource ApplicationDimBlue}">
+        <hc:SimplePanel Background="{StaticResource ApplicationPrimaryDark}">
             <TextBlock Text="Category"
                        Foreground="{StaticResource ApplicationLight}"
                        FontSize="24"
@@ -42,10 +42,12 @@
                            FontSize="18"
                            Padding="0 0 0 5"
                            FontWeight="Bold"/>-->
+                <TextBlock Name="CategoryNameError" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="CategoryNameTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Category Name"
+                         Text="{Binding CategoryName}"
                          Height="40"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 0">
@@ -59,6 +61,7 @@
                              hc:BorderElement.CornerRadius="0"
                              MinHeight="40"
                              Height="Auto"
+                             Text="{Binding CategoryDescription}"
                              hc:InfoElement.Placeholder="Description"
                              AcceptsReturn="True"/>
             </StackPanel>
@@ -74,7 +77,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="DeleteCategoryButton_Click"/>
                 <Button Name="SaveCategoryButton"
                         Margin="0 0 30 0"
                         Foreground="#fff"
@@ -84,7 +87,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="SaveCategoryButton_Click"/>
             </hc:FlexPanel>
         </hc:SimplePanel>
     </Grid>

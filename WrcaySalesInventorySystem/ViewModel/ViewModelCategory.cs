@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WrcaySalesInventorySystem.Classs.Interface;
 using WrcaySalesInventorySystem.Models;
 
 namespace WrcaySalesInventorySystem.ViewModel
 {
-    public class ViewModelCategory : ViewModelBase, IDataCommand
+    public class ViewModelCategory : ViewModelBase , IDataCommand
     {
-        private Tblcategory  _category;
-        private ApplicationDatabaseContext _databaseContext;
+       private readonly Tblcategory  _category;
+       private readonly ApplicationDatabaseContext _databaseContext = new();
 
-        public ViewModelCategory(Tblcategory category, ApplicationDatabaseContext databaseContext)
+        public ViewModelCategory(Tblcategory category)
         {
             _category = category;
-            _databaseContext = databaseContext;
         }
 
         public string? CategoryName
@@ -21,18 +23,29 @@ namespace WrcaySalesInventorySystem.ViewModel
             get => _category.CategoryName;
             set
             {
-                _category.CategoryName = value;
-                Changed("CategoryName");
+                if (!String.IsNullOrEmpty(value))
+                {
+                    _category.CategoryName = value;
+                    Changed("CategoryName");
+                }
             }
         }
 
         public string? CategoryDescription
         {
-            get => _category.CategoryDescription;
+            get {
+                if(string.IsNullOrEmpty(_category.CategoryDescription))
+                    return "None";
+                else
+                    return _category.CategoryDescription;
+            }
             set
             {
-                _category.CategoryDescription = value;
-                Changed("CategoryDescription");
+                if (!String.IsNullOrEmpty(value))
+                {
+                    _category.CategoryDescription = value;
+                    Changed("CategoryDescription");
+                }
             }
         }
 
@@ -46,12 +59,12 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
         }
 
-        public async Task<bool> Add()
+        public bool Add()
         {
             try
             {
-                await _databaseContext.Tblcategories.AddAsync(_category);
-                int res = await _databaseContext.SaveChangesAsync();
+                _databaseContext.Tblcategories.Add(_category);
+                int res = _databaseContext.SaveChanges();
                 return res > 0;
 
             } catch(Exception)
@@ -61,12 +74,12 @@ namespace WrcaySalesInventorySystem.ViewModel
             
         }
 
-        public async Task<bool> Delete()
+        public bool Delete()
         {
             try
             {
                 _databaseContext.Tblcategories.Remove(_category);
-                int res = await _databaseContext.SaveChangesAsync();
+                int res = _databaseContext.SaveChanges();
                 return res > 0;
             } catch (Exception)
             {
@@ -78,25 +91,34 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
-                var res = _databaseContext.Tblcategories.Find(_category);
-                return res is null;
+                var res = _databaseContext.Tblcategories.ToArray();
+                for (int i = 0; i < res.Length; i++)
+                {
+                    if (res[i].CategoryName == CategoryName)
+                    {
+                        if (CategoryID != 0 && CategoryID != res[i].Id)
+                            return true;
+                        return true;
+                    }
+                }
+                return false;
             } catch (Exception)
             {
                 return false;
             }
         }
 
-        public Task<bool> IsValid()
+        public bool IsValid()
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<bool> Update()
+        public bool Update()
         {
             try
             {
                 _databaseContext.Tblcategories.Update(_category);
-                int res = await _databaseContext.SaveChangesAsync();
+                int res = _databaseContext.SaveChanges();
                 return res > 0;
             } catch (Exception)
             {

@@ -6,14 +6,14 @@
              xmlns:local="clr-namespace:WrcaySalesInventorySystem.Dialogs"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d"
-             Width="500">
-    <Grid>
+             Width="500" Loaded="UserControl_Loaded">
+    <Grid Background="{StaticResource ApplicationLight}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <hc:SimplePanel Background="{StaticResource ApplicationDimBlue}">
+        <hc:SimplePanel Background="{StaticResource ApplicationPrimaryDark}">
             <TextBlock Text="Product"
                        Foreground="{StaticResource ApplicationLight}"
                        FontSize="24"
@@ -24,6 +24,7 @@
                     Height="30"
                     Width="30"
                     Style="{StaticResource ButtonIcon}"
+                     hc:IconElement.Geometry="{StaticResource ErrorGeometry}"
                     Command="hc:ControlCommands.Close"
                     Margin="0 0 30 0"
                     Padding="0"
@@ -32,68 +33,48 @@
         </hc:SimplePanel>
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
-                    Margin="30 8"
+                    Margin="30 12"
                     VerticalAlignment="Center">
             <StackPanel>
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="CATEGORY: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
+                <TextBlock Name="CategoryError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:ComboBox Name="CategoryComboBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          Height="40"
-                             hc:InfoElement.Placeholder="Select category"
-                         IsEditable="True"/>
+                         hc:InfoElement.Placeholder="Select category"
+                         SelectedValue="{Binding CategoryID}"
+                         IsEditable="True" SelectionChanged="CategoryComboBox_SelectionChanged"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="PRODUCT NAME : "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
+                <TextBlock Name="ProductNameError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="ProductNameTextBox"
-                         Text="{Binding PRODUCT_NAME}"
+                         Text="{Binding ProductName}"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                             hc:InfoElement.Placeholder="Product Name"
                          Height="40"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="PRODUCT DESCRIPTION: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
                 <hc:TextBox Name="ProductDescriptionTextBox"
-                         Text="{Binding PRODUCT_DESCRIPTION}"
+                         Text="{Binding ProductDescription}"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Description"
                          Height="40"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="PRODUCT PRICE: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
+                <TextBlock Name="ProductPriceError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="ProductPriceTextBox"
-                         Text="{Binding PRICE}"
+                         Text="{Binding ProductPrice}"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          Height="40" InputScope="Number"
                             hc:InfoElement.Placeholder="Price"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="PRODUCT COST: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
+                <TextBlock Name="ProductCostError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="ProductCostTextBox"
-                         Text="{Binding COST_PRICE}"
+                         Text="{Binding ProductCost}"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Cost price"
@@ -111,7 +92,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="DeleteButton_Click"/>
                 <Button Name="SaveButton"
                         Margin="0 0 30 0"
                         Foreground="#fff"
@@ -121,7 +102,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="SaveButton_Click"/>
             </hc:FlexPanel>
         </hc:SimplePanel>
     </Grid>

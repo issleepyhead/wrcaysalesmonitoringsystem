@@ -97,7 +97,7 @@ namespace WrcaySalesInventorySystem.custom {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WrcaySalesInventorySystem;V1.0.0.0;component/custom/deliverypanel.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WrcaySalesInventorySystem;component/custom/deliverypanel.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Custom\DeliveryPanel.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -7,13 +7,13 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d"
              Width="500">
-    <Grid>
+    <Grid Background="{StaticResource ApplicationLight}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <hc:SimplePanel Background="{StaticResource ApplicationDimBlue}">
+        <hc:SimplePanel Background="{StaticResource ApplicationPrimaryDark}">
             <TextBlock Text="Subcategory"
                        Foreground="{StaticResource ApplicationLight}"
                        FontSize="24"
@@ -77,7 +77,7 @@
                                   hc:InfoElement.ShowClearButton="True"
                                   Style="{StaticResource CheckComboBoxPlus}"
                                   IsTextSearchEnabled="True"
-                                  hc:InfoElement.Placeholder="Select parent category"
+                                  hc:InfoElement.Placeholder="Select Category"
                                   SelectionMode="Multiple" IsTextSearchCaseSensitive="True"/>
             </StackPanel>
         </StackPanel>
