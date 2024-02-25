@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
-using WrcaySalesInventorySystem.Models;
 using WrcaySalesInventorySystem.Properties;
 
 namespace WrcaySalesInventorySystem
@@ -20,10 +18,6 @@ namespace WrcaySalesInventorySystem
 
         private static void ConfigureServices(ServiceCollection services)
         {
-            services.AddDbContext<ApplicationDatabaseContext>(options =>
-            {
-                options.UseSqlServer(Settings.Default.wrcaydbConenction2);
-            });
             services.AddSingleton<MainWindow>();
         }
 

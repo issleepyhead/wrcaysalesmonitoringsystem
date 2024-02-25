@@ -3,7 +3,7 @@
 
 namespace WrcaySalesInventorySystem.Classs.Interface
 {
-    internal interface IDataCommand
+    public interface IDataCommand
     {
         bool Add();
         bool Delete();
@@ -12,6 +12,7 @@ namespace WrcaySalesInventorySystem.Classs.Interface
 
         // For excel functions
         bool IsValid();
+        
 
 
     }

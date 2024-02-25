@@ -37,14 +37,16 @@
                     Margin="30 8"
                     VerticalAlignment="Center">
             <StackPanel Margin="0 8 0 0">
-                <hc:TextBox Name="CategoryNameTextBox"
+                <TextBlock Name="DiscountNameError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
+                <hc:TextBox Name="DiscountNameTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Discount Name"
                          Height="40"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 0">
-                <hc:TextBox Name="CategoryDescriptionTextBox"
+                <TextBlock Name="DiscountValueError" FontSize="11" Foreground="Red"/>
+                <hc:TextBox Name="DiscountValueTextBox"
                              HorizontalAlignment="Stretch"
                              hc:BorderElement.CornerRadius="0"
                              MinHeight="40"

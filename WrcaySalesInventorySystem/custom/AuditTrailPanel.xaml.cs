@@ -12,17 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WrcaySalesInventorySystem.Class;
 
 namespace WrcaySalesInventorySystem.custom
 {
     /// <summary>
     /// Interaction logic for AuditTrailPane.xaml
     /// </summary>
-    public partial class AuditTrailPanel : UserControl
+    public partial class AuditTrailPanel : UserControl, IUpdatePanels
     {
         public AuditTrailPanel()
         {
             InitializeComponent();
+        }
+
+        public void UpdateTable()
+        {
+
+        }
+
+        public void UpdateUI()
+        {
+            //throw new NotImplementedException();
         }
     }
 }

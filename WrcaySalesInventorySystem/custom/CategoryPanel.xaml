@@ -60,12 +60,28 @@
                   Margin="10 0 10 10" RowHeight="30" SelectionChanged="CategoriesDataGridView_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="13"
-                                    Header="CATEGORY NAME"
+                                    Header="Category Name"
                                     Binding="{Binding CategoryName}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="DESCRIPTION"
+                                    Header="Description"
                                     Binding="{Binding CategoryDescription}"
+                                    Width="*"/>
+                <DataGridTextColumn FontSize="13"
+                                    Header="Created"
+                                    Binding="{Binding CreatedBy}"
+                                    Width="*"/>
+                <DataGridTextColumn FontSize="13"
+                                    Header="Updated"
+                                    Binding="{Binding UpdatedBy}"
+                                    Width="*"/>
+                <DataGridTextColumn FontSize="13"
+                                    Header="Added"
+                                    Binding="{Binding DateAdded}"
+                                    Width="*"/>
+                <DataGridTextColumn FontSize="13"
+                                    Header="Last Updated"
+                                    Binding="{Binding DateUpdated}"
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

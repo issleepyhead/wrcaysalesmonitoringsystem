@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WrcaySalesInventorySystem.Class;
+using InputType = WrcaySalesInventorySystem.Class.InputType;
 
 namespace WrcaySalesInventorySystem.Dialogs
 {
@@ -23,6 +25,22 @@ namespace WrcaySalesInventorySystem.Dialogs
         public SubCategoryDialog()
         {
             InitializeComponent();
+        }
+
+        private void SubCategoryNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!ValidationCheck.ValidateInput(SubCategoryNameTextBox.Text, InputType.STRING_INPUT))
+            {
+                SubCategoryNameTextBox.BorderBrush = Brushes.Red;
+                SubCategoryNameError.Visibility = Visibility.Visible;
+                SubCategoryNameError.Text = "Please provide a valid category name";
+            }
+            else
+            {
+                SubCategoryNameTextBox.BorderBrush = new BrushConverter().ConvertFromString("#FFE0E0E0") as Brush;
+                SubCategoryNameError.Visibility = Visibility.Collapsed;
+                SubCategoryNameError.Text = null;
+            }
         }
     }
 }

@@ -33,7 +33,7 @@
                                Margin="0 0 10 0"/>
                 <Button x:Name="AddButton" Foreground="#fff" FontSize="9"
                         hc:BorderElement.CornerRadius="0"
-                        Content="Add"
+                        Content="New Supplier"
                         hc:IconElement.Height="12"
                         hc:IconElement.Width="12"
                         Height="30"
@@ -42,7 +42,7 @@
                         BorderThickness="0"
                         Background="{StaticResource ApplicationPrimaryDark}"
                         VerticalAlignment="Center"
-                        Grid.Column="1"/>
+                        Grid.Column="1" Click="AddButton_Click"/>
             </StackPanel>
         </hc:FlexPanel>
         <DataGrid RowStyle="{DynamicResource CustomDataGridRowStyle}"
@@ -59,16 +59,24 @@
                   Margin="10 0 10 10" RowHeight="30">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="13"
-                                    Header="SUPPLIER NAME"
-                                    Binding="{Binding SUPPLIER_NAME}"
+                                    Header="Company Name"
+                                    Binding="{Binding SupplierName}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="ADDRESS"
-                                    Binding="{Binding ADDRESS}"
+                                    Header="First Name"
+                                    Binding="{Binding FirstName}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="CONTACT"
-                                    Binding="{Binding CONTACT}"
+                                    Header="Last Name"
+                                    Binding="{Binding LastName}"
+                                    Width="*"/>
+                <DataGridTextColumn FontSize="13"
+                                    Header="Address"
+                                    Binding="{Binding SupplierAddress}"
+                                    Width="*"/>
+                <DataGridTextColumn FontSize="13"
+                                    Header="Contact"
+                                    Binding="{Binding SupplierContact}"
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

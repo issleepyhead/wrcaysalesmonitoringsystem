@@ -26,22 +26,23 @@ namespace WrcaySalesInventorySystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\SCHOOL FILES\\wrcaysalesmo" +
-            "nitoringsystem\\WrcaySalesInventorySystem\\wrcaydb.mdf\";Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\system\\wrcaysalesmonitorin" +
+            "gsystem\\WrcaySalesInventorySystem\\wrcaydb.mdf;Integrated Security=True")]
         public string wrcaydbConnectionString {
             get {
                 return ((string)(this["wrcaydbConnectionString"]));
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\system\\wrcaysalesmonitorin" +
-            "gsystem\\WrcaySalesInventorySystem\\wrcaysystemdb.mdf;Integrated Security=True")]
-        public string wrcaydbConenction2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("22")]
+        public int userID {
             get {
-                return ((string)(this["wrcaydbConenction2"]));
+                return ((int)(this["userID"]));
+            }
+            set {
+                this["userID"] = value;
             }
         }
     }

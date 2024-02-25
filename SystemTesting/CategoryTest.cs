@@ -1,5 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-//using WrcaySalesInventorySystem.Models;
+using WrcaySalesInventorySystem.Class;
 using WrcaySalesInventorySystem.ViewModel;
 
 namespace SystemTesting
@@ -7,34 +6,38 @@ namespace SystemTesting
     [TestClass]
     public class CategoryTest
     {
-        /*private ApplicationDatabaseContext databaseContext;
-        public CategoryTest()
+        private ViewModelCategory _vmCategory = new();
+
+        [TestMethod]
+        public void TestInsertCategory()
         {
-            databaseContext = new(new DbContextOptions<ApplicationDatabaseContext>());
+            _vmCategory.CategoryName = "TestMethodCategory111";
+            _vmCategory.CategoryDescription = null;
+            AddCommand addCommand = new(_vmCategory);
+            bool res = addCommand.Execute();
+            Assert.IsTrue(res, $"The result is {res}");
+        }
+
+
+        [TestMethod]
+        public void TestInsertWithoutName()
+        {
+            _vmCategory.CategoryName = null;
+            _vmCategory.CategoryDescription = null;
+            AddCommand addCommand = new(_vmCategory);
+            bool res = addCommand.Execute();
+            Assert.IsFalse(res, $"The result is {res}");
         }
 
         [TestMethod]
-        public async Task CategoryTestForEmptyString()
+        public void TestUpdateCategory()
         {
-            Tblcategory category = new()
-            {
-                CategoryDescription = "Sample Description",
-                CategoryName = "Test"
-            };
-
-            ViewModelCategory vmCategory = new ViewModelCategory(category, databaseContext);
-            bool res = await vmCategory.Add();
-            Assert.IsTrue(res, $"An error occured while adding the category {res}");
+            _vmCategory.CategoryName = "TestMethodCategory123";
+            _vmCategory.CategoryDescription = "sample desc";
+            _vmCategory.CategoryID = 3;
+            UpdateCommand updateCommand = new(_vmCategory);
+            bool res = updateCommand.Execute();
+            Assert.IsTrue(res, $"The result is {res}");
         }
-
-        [TestMethod]
-        public async Task CategoryDelete()
-        {
-            var categories = databaseContext.Tblcategories.ToArray<Tblcategory>();
-            Tblcategory category = categories.First();
-            databaseContext.Tblcategories.Remove(category);
-            int res = await databaseContext.SaveChangesAsync();
-            Assert.IsTrue(res > 0, "An error occured");
-        }*/
     }
 }

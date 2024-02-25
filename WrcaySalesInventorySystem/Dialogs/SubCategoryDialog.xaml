@@ -37,23 +37,15 @@
                     Margin="30 8"
                     VerticalAlignment="Center">
             <StackPanel Margin="0 8 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="SUB CATEGORY: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
+                <TextBlock Name="SubCategoryNameError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="SubCategoryNameTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Subcategory Name"
-                         Height="40"/>
+                         Height="40" TextChanged="SubCategoryNameTextBox_TextChanged"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="SUB CATEGORY DESCRIPTION: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
+                <TextBlock Name="SubCategoryDescriptionError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="SubCategoryDescriptionTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
@@ -63,22 +55,15 @@
                          hc:InfoElement.Placeholder="Description"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="CATEGORY: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
-                <hc:CheckComboBox Name="ParentCategoryCheckCombobox"
+                <TextBlock Name="CategoryError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
+                <hc:ComboBox Name="CategoryCheckCombobox"
                                   HorizontalAlignment="Stretch"
                                   hc:BorderElement.CornerRadius="0"
                                   MinHeight="40"
                                   Height="Auto"
-                                  ShowSelectAllButton="True"
                                   hc:InfoElement.ShowClearButton="True"
-                                  Style="{StaticResource CheckComboBoxPlus}"
                                   IsTextSearchEnabled="True"
-                                  hc:InfoElement.Placeholder="Select Category"
-                                  SelectionMode="Multiple" IsTextSearchCaseSensitive="True"/>
+                                  hc:InfoElement.Placeholder="Select Category"/>
             </StackPanel>
         </StackPanel>
         <hc:SimplePanel Grid.Row="2">

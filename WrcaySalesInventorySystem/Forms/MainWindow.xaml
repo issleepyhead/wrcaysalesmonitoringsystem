@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WrcaySalesInventorySystem"
         xmlns:panels="clr-namespace:WrcaySalesInventorySystem.custom"
-        xmlns:viewmodels="clr-namespace:WrcaySalesInventorySystem.ViewModel"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
@@ -39,15 +38,13 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <hc:SideMenu Grid.Column="0"
-                     x:Name="SideMenuLeft"
-                     hc:BorderThickness="0 0 .2 0"
-                     hc:BorderBrush="gray">
-            <hc:SideMenuItem Selected="SelectedPanel">
+                     x:Name="SideMenuLeft">
+            <hc:SideMenuItem Selected="SelectedPanel" >
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Dashboard" Padding="0" Margin="20 0 0 0" FontSize="14"/>
                 </hc:SideMenuItem.Header>
             </hc:SideMenuItem>
-            
+
             <hc:SideMenuItem>
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Maintenance" Padding="0" Margin="20 0 0 0" FontSize="14"/>
@@ -60,11 +57,6 @@
                 <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="Categories" Margin="30 0 0 0" FontSize="14"/>
-                    </hc:SideMenuItem.Header>
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Selected="SelectedPanel">
-                    <hc:SideMenuItem.Header>
-                        <TextBlock Text="Sub Categories" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
                 <hc:SideMenuItem Selected="SelectedPanel">
@@ -94,7 +86,7 @@
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>-->
             </hc:SideMenuItem>
-            
+
             <hc:SideMenuItem>
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Inventory" Padding="0" Margin="20 0 0 0" FontSize="14"/>
@@ -110,7 +102,7 @@
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
             </hc:SideMenuItem>
-            
+
             <hc:SideMenuItem>
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Reports" Padding="0" Margin="20 0 0 0" FontSize="14"/>
@@ -122,16 +114,11 @@
                 </hc:SideMenuItem>
                 <hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
-                        <TextBlock Text="Stock In Report" Margin="30 0 0 0" FontSize="14"/>
-                    </hc:SideMenuItem.Header>
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Selected="SelectedPanel">
-                    <hc:SideMenuItem.Header>
                         <TextBlock Text="Expenses" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
             </hc:SideMenuItem>
-            
+
             <hc:SideMenuItem x:Name="SettingsViewButton">
                 <hc:SideMenuItem.Header>
                     <TextBlock Text="Settings" Padding="0" Margin="20 0 0 0" FontSize="14"/>
@@ -150,14 +137,16 @@
         </hc:SideMenu>
 
         <Grid Grid.Column="1">
-            <panels:AccountPanel x:Name="AccountPanel" Padding="20"/>
+            <panels:AccountPanel x:Name="AccountPanel" Padding="20" Visibility="Collapsed"/>
             <panels:AuditTrailPanel x:Name="AuditTralPanel" Visibility="Collapsed" Padding="20"/>
-            <panels:CategoryPanel x:Name="CategoryPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:CategoriesPanel x:Name="CategoriesPanel" Visibility="Collapsed" Padding="20"/>
             <panels:DeliveryPanel x:Name="DeliveryPanel" Visibility="Collapsed" Padding="20"/>
             <panels:InventoryPanel x:Name="InventoryPanel" Visibility="Collapsed" Padding="20"/>
             <panels:ProductsPanel x:Name="ProductsPanel" Visibility="Collapsed" Padding="20"/>
             <panels:SupplierPanel x:Name="SupplierPanel" Visibility="Collapsed" Padding="20"/>
             <panels:TransactionPanel x:Name="TransactionPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:VATPanel x:Name="VATPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:POSPanel x:Name="POSPanel" Padding="10"/>
         </Grid>
     </Grid>
 </hc:Window>

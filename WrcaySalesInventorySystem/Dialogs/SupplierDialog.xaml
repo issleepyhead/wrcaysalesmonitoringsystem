@@ -34,43 +34,68 @@
         </hc:SimplePanel>
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
-                    Margin="30 8"
+                    Margin="30 4"
                     VerticalAlignment="Center">
-            <StackPanel Margin="0 8 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="SUPPLIER NAME: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
-                <hc:TextBox Name="SupplierNameTextBox"
+            <StackPanel Margin="0 15 0 0">
+                <TextBlock x:Name="CompanyError" Visibility="Collapsed" FontSize="14" Foreground="Red"/>
+                <hc:TextBox Name="SupplierCompanyTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
-                            hc:InfoElement.Placeholder="Supplier Name"
-                         Height="40"/>
+                         hc:InfoElement.Placeholder="Supplier Company"
+                         Height="40" TextChanged="TextBox_TextChanged"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="SUPPLIER ADDRESS: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
+                <TextBlock x:Name="FirstNameError" Visibility="Collapsed" FontSize="14" Foreground="Red"/>
+                <hc:TextBox Name="SupplierFirstNameTextBox"
+                         HorizontalAlignment="Stretch"
+                         hc:BorderElement.CornerRadius="0"
+                         hc:InfoElement.Placeholder="First Name"
+                         Height="40" TextChanged="TextBox_TextChanged"/>
+            </StackPanel>
+            <StackPanel Margin="0 15 0 0">
+                <TextBlock x:Name="LastError" Visibility="Collapsed" FontSize="14" Foreground="Red"/>
+                <hc:TextBox Name="SupplierLastNameTextBox"
+                         HorizontalAlignment="Stretch"
+                         hc:BorderElement.CornerRadius="0"
+                         hc:InfoElement.Placeholder="Last Name"
+                         Height="40" TextChanged="TextBox_TextChanged"/>
+            </StackPanel>
+            <StackPanel Margin="0 15 0 0">
+                <TextBlock x:Name="AddressError" Visibility="Collapsed" FontSize="14" Foreground="Red"/>
                 <hc:TextBox Name="SupplierAddressTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
-                            hc:InfoElement.Placeholder="Address"
-                         Height="40" InputScope="AddressCity"/>
+                         hc:InfoElement.Placeholder="Address"
+                         Height="40"
+                         TextChanged="TextBox_TextChanged"/>
             </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="0 15 0 0" Grid.Column="0">
+                    <hc:TextBox Name="SupplierCountryTextBox"
+                         HorizontalAlignment="Stretch"
+                         hc:BorderElement.CornerRadius="0"
+                         hc:InfoElement.Placeholder="Country (Optional)"
+                         Height="40"/>
+                </StackPanel>
+                <StackPanel Margin="0 15 0 0" Grid.Column="1">
+                    <hc:TextBox Name="SupplierCityTextBox"
+                         HorizontalAlignment="Stretch"
+                         hc:BorderElement.CornerRadius="0"
+                         hc:InfoElement.Placeholder="City (Optional)"
+                         Height="40"/>
+                </StackPanel>
+            </Grid>
             <StackPanel Margin="0 15 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="SUPPLIER CONTACT: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
+                <TextBlock x:Name="ContactError" Visibility="Collapsed" FontSize="14" Foreground="Red"/>
                 <hc:TextBox Name="SupplierContactTextBox"
                          HorizontalAlignment="Stretch"
-                            hc:InfoElement.Placeholder="Phone e.g 09XX XXX XXXX"
+                            hc:InfoElement.Placeholder="Phone Number"
                          hc:BorderElement.CornerRadius="0"
-                         Height="40" InputScope="Default"/>
+                         Height="40" TextChanged="TextBox_TextChanged"/>
             </StackPanel>
         </StackPanel>
         <hc:SimplePanel Grid.Row="2">

@@ -4,10 +4,12 @@ using System.Windows.Controls;
 using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControl.Tools.Command;
+using WrcaySalesInventorySystem.Class;
+using WrcaySalesInventorySystem.custom;
 
 namespace WrcaySalesInventorySystem
 {
-    public partial class MainWindow : HandyControl.Controls.Window, System.Windows.Markup.IComponentConnector
+    public partial class MainWindow : HandyControl.Controls.Window, System.Windows.Markup.IComponentConnector, IUpdatePanels
     {
 
         public MainWindow(/*ApplicationDatabaseContext databaseContext*/)
@@ -19,8 +21,8 @@ namespace WrcaySalesInventorySystem
         public void ClosePanels()
         {
             UserControl[] panels = { AccountPanel, ProductsPanel, AuditTralPanel,
-                CategoryPanel, SupplierPanel, TransactionPanel,   InventoryPanel, 
-                DeliveryPanel
+                CategoriesPanel, SupplierPanel, TransactionPanel,   InventoryPanel, 
+                DeliveryPanel, VATPanel, POSPanel
             };
 
             for (int i = 0; i < panels.Length; i++)
@@ -40,58 +42,54 @@ namespace WrcaySalesInventorySystem
                     switch(headerText.Text.ToLower())
                     {
                         case "dashboard":
-                            Growl.Info("Dashboard");
                             break;
                         case "pos":
-                            Growl.Info("POS");
+                            POSPanel.Visibility = Visibility.Visible;
                             break;
                         case "products":
-                            Growl.Info("Products");
                             ProductsPanel.Visibility = Visibility.Visible;
                             break;
                         case "categories":
-                            Growl.Info("Categories");
-                            CategoryPanel.Visibility = Visibility.Visible;
-                            break;
-                        case "sub categories":
-                            Growl.Info("Sub Categories");
+                            CategoriesPanel.Visibility = Visibility.Visible;
                             break;
                         case "suppliers":
-                            Growl.Info("Suppliers");
                             SupplierPanel.Visibility = Visibility.Visible;
                             break;
                         case "vat":
-                            Growl.Info("VAT");
-                            break;
-                        case "inventory":
-                            Growl.Info("Inventory");
-                            InventoryPanel.Visibility = Visibility.Visible;
+                            VATPanel.Visibility = Visibility.Visible;
                             break;
                         case "stocks":
-                            Growl.Info("Stocks");
+                            InventoryPanel.Visibility = Visibility.Visible;
                             break;
                         case "delivery":
-                            Growl.Info("Delivery");
+                            DeliveryPanel.Visibility = Visibility.Visible;
                             break;
                         case "transaction report":
-                            Growl.Info("Transaction Reports");
-                            break;
-                        case "stock in report":
-                            Growl.Info("Stock In Report");
+                            TransactionPanel.Visibility = Visibility.Visible;
                             break;
                         case "expenses":
-                            Growl.Info("Expenses");
                             break;
                         case "users":
-                            Growl.Info("Users");
                             AccountPanel.Visibility = Visibility.Visible;
                             break;
                         case "database":
-                            Growl.Info("Database");
                             break;
                     }
                 }
             }
+        }
+
+
+        public void UpdateUI()
+        {
+            IUpdatePanels[] panels = { AccountPanel, ProductsPanel, AuditTralPanel,
+                CategoriesPanel, SupplierPanel, TransactionPanel,   InventoryPanel,
+                DeliveryPanel, VATPanel, POSPanel
+            };
+
+            foreach (IUpdatePanels panel in panels)
+                panel.UpdateUI();
+
         }
     }
 }

@@ -1,31 +1,79 @@
-﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using WrcaySalesInventorySystem.Class;
 using WrcaySalesInventorySystem.Classs.Interface;
-using WrcaySalesInventorySystem.Models;
 
 namespace WrcaySalesInventorySystem.ViewModel
 {
     public class ViewModelProduct : ViewModelBase, IDataCommand
     {
-        private readonly ApplicationDatabaseContext _databaseContext = new();
-        private readonly Tblproduct _tblproduct;
-        public ViewModelProduct(Tblproduct tblproduct)
+        private SqlConnection _sqlConnection = new BaseConnection().getConnection();
+        private SqlCommand? _sqlCommand;
+        private int _productID;
+        private string? _productName;
+        private string? _productDescription;
+        private double _productPrice;
+        private double _productCost;
+        private int _categoryID;
+        private int _createdBy;
+        private int _updatedBy;
+        private DateTime _dateAdded;
+        private DateTime _dateUpdated;
+        private string? _createdUser;
+        private string? _updatedUser;
+
+        public int CreatedBy { get => _createdBy; set => _createdBy = value; }
+        public int UpdatedBy { get => _updatedBy; set=> _updatedBy = value; }
+
+        public string? UpdatedUser
         {
-            _tblproduct = tblproduct;
+            get => _updatedUser;
+            set
+            {
+                _updatedUser = value;
+                Changed("UpdatedUser");
+            }
+        }
+
+        public string? CreatedUser
+        {
+            get => _createdUser;
+            set
+            {
+                _createdUser = value;
+                Changed("CreatedUser");
+            }
+        }
+
+        public DateTime DateUpdated
+        {
+            get => _dateUpdated;
+            set
+            {
+                _dateUpdated = value;
+                Changed("DateUpdated");
+            }
+        }
+
+        public DateTime DateAdded
+        {
+            get => _dateAdded;
+            set
+            {
+                _dateAdded = value;
+                Changed("DateAdded");
+            }
         }
 
         public string? ProductName
         {
-            get => _tblproduct.ProductName;
+            get => _productName;
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    _tblproduct.ProductName = value;
+                    _productName = value;
                 }
                 Changed("ProductName");
             }
@@ -33,88 +81,51 @@ namespace WrcaySalesInventorySystem.ViewModel
 
         public string? ProductDescription
         {
-            get => _tblproduct.ProductDescription;
+            get => _productDescription;
             set
             {
                 if (!string.IsNullOrEmpty(value))
-                    _tblproduct.ProductDescription = value;
+                    _productDescription = value;
                 Changed("ProductDescription");
             }
         }
 
-        public string? ProductPrice
+        public double ProductPrice
         {
-            get => _tblproduct.ProductCost < 0 ? null : _tblproduct.ProductPrice.ToString();
+            get => _productPrice;
             set
             {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    _tblproduct.ProductPrice = double.Parse(value);
-                    Changed("ProductPrice");
-                }
+                _productPrice = value;
+                Changed("ProductPrice");
             }
         }
 
-        public string? ProductCost
+        public double ProductCost
         {
-            get => _tblproduct.ProductCost < 0 ? null : _tblproduct.ProductCost.ToString();
+            get => _productCost;
             set
             {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    _tblproduct.ProductCost = double.Parse(value);
-                    Changed("ProductCost");
-                }
+                _productCost = value;
+                Changed("ProductCost");
             }
         }
 
-        public int ProductID
-        {
-            get => _tblproduct.Id;
+        public int ProductID {
+            get => _productID;
             set
             {
-                _tblproduct.Id = value;
+                _productID = value;
+                Changed("ProductID");
             }
         }
 
-        public int? CategoryID
+        public int CategoryID
         {
-            get => _tblproduct.CategoryId;
+            get => _categoryID;
             set
             {
-                _tblproduct.CategoryId = value;
-            }
-        }
-
-        public string? CategoryName
-        {
-            get => _tblproduct?.Category?.CategoryName;
-            set
-            {
-                if (_tblproduct != null && _tblproduct?.Category != null)
-                {
-                    _tblproduct.Category.CategoryName = value;
-                }
-            }
-        }
-
-        public Tblcategory? Category
-        {
-            get
-            {
-                if (_tblproduct != null && _tblproduct?.Category != null)
-                {
-                    return _tblproduct.Category;
-                }
-                return null;
-            }
-
-            set
-            {
-                if (_tblproduct != null && _tblproduct?.Category != null)
-                {
-                    _tblproduct.Category = value;
-                }
+                _categoryID = value;
+                Changed("CategoryID");
             }
         }
 
@@ -122,10 +133,18 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
-                _databaseContext.Tblproducts.Add(_tblproduct);
-                int res = _databaseContext.SaveChanges();
-                return res > 0;
-
+                _sqlCommand = new SqlCommand(
+                    "InsertProductProcedure @product_category, @product_name, @product_description, " +
+                    "@product_price, @product_cost, @user_id",
+                    _sqlConnection
+                );
+                _sqlCommand.Parameters.AddWithValue("@product_name", ProductName);
+                _sqlCommand.Parameters.AddWithValue("@product_price", ProductPrice);
+                _sqlCommand.Parameters.AddWithValue("@product_cost", ProductCost);
+                _sqlCommand.Parameters.AddWithValue("@product_category", CategoryID == 0 ? DBNull.Value : CategoryID);
+                _sqlCommand.Parameters.AddWithValue("@product_description", ProductDescription == null ? DBNull.Value : ProductDescription);
+                _sqlCommand.Parameters.AddWithValue("@user_id", 22);
+                return _sqlCommand.ExecuteNonQuery() > 0;
             }
             catch (Exception)
             {
@@ -137,9 +156,13 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
-                _databaseContext.Tblproducts.Remove(_tblproduct);
-                int res = _databaseContext.SaveChanges();
-                return res > 0;
+                _sqlCommand = new SqlCommand(
+                    "DeleteProductProcedure @product_id, @user_id",
+                    _sqlConnection
+                );
+                _sqlCommand.Parameters.AddWithValue("@product_id", ProductID);
+                _sqlCommand.Parameters.AddWithValue("@user_id", 22);
+                return _sqlCommand.ExecuteNonQuery() > 0;
             }
             catch (Exception)
             {
@@ -151,16 +174,6 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
-                var res = _databaseContext.Tblproducts.ToArray();
-                for (int i = 0; i < res.Length; i++)
-                {
-                    if (res[i].ProductName == ProductName)
-                    {
-                        if (ProductID != 0 && ProductID != res[i].Id)
-                            return true;
-                        return true;
-                    }
-                }
                 return false;
             }
             catch (Exception)
@@ -178,9 +191,19 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
-                _databaseContext.Tblproducts.Update(_tblproduct);
-                int res = _databaseContext.SaveChanges();
-                return res > 0;
+                _sqlCommand = new SqlCommand(
+                    "UpdateProductProcedure @product_id, @product_category, @product_name, @product_description, " +
+                    "@product_price, @product_cost, @product_subcategory, @user_id",
+                    _sqlConnection
+                );
+                _sqlCommand.Parameters.AddWithValue("@product_name", ProductName);
+                _sqlCommand.Parameters.AddWithValue("@product_id", ProductID);
+                _sqlCommand.Parameters.AddWithValue("@product_price", ProductPrice);
+                _sqlCommand.Parameters.AddWithValue("@product_cost", ProductCost);
+                _sqlCommand.Parameters.AddWithValue("@product_category", CategoryID == 0 ? DBNull.Value : CategoryID);
+                _sqlCommand.Parameters.AddWithValue("@product_description", ProductDescription == null ? DBNull.Value : ProductDescription);
+                _sqlCommand.Parameters.AddWithValue("@user_id", 22);
+                return _sqlCommand.ExecuteNonQuery() > 0;
             }
             catch (Exception)
             {

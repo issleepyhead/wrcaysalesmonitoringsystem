@@ -12,17 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WrcaySalesInventorySystem.Class;
 
 namespace WrcaySalesInventorySystem.custom
 {
     /// <summary>
     /// Interaction logic for DeliveryPanel.xaml
     /// </summary>
-    public partial class DeliveryPanel : UserControl
+    public partial class DeliveryPanel : UserControl, IUpdatePanels
     {
         public DeliveryPanel()
         {
             InitializeComponent();
+        }
+
+        public void UpdateUI()
+        {
+            //throw new NotImplementedException();
         }
     }
 }

@@ -14,10 +14,13 @@
     <Compile Update="Custom\DeliveryPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Custom\ExpensesPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Custom\InventoryPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Custom\MaintenancePanel.xaml.cs">
+    <Compile Update="Custom\CategoriesPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Custom\POSPanel.xaml.cs">
@@ -29,13 +32,22 @@
     <Compile Update="Custom\ReportsPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Custom\SubCategory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Custom\SupplierPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Custom\TransactionPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Custom\VATPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialogs\CategoryDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\DeliveryCartDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialogs\DeliveryDialog.xaml.cs">
@@ -59,6 +71,9 @@
     <Compile Update="Dialogs\UserDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialogs\VATDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Custom\AccountPanel.xaml">
@@ -73,10 +88,13 @@
     <Page Update="Custom\DeliveryPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Custom\ExpensesPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Custom\InventoryPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Custom\MaintenancePanel.xaml">
+    <Page Update="Custom\CategoriesPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Custom\POSPanel.xaml">
@@ -88,13 +106,22 @@
     <Page Update="Custom\ReportsPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Custom\SubCategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Custom\SupplierPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Custom\TransactionPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Custom\VATPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialogs\CategoryDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\DeliveryCartDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\DeliveryDialog.xaml">
@@ -116,6 +143,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\UserDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\VATDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\colors\colors.xaml">
