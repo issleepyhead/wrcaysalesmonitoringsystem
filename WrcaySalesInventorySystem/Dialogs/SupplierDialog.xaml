@@ -42,7 +42,8 @@
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Supplier Company"
-                         Height="40" TextChanged="TextBox_TextChanged"/>
+                         Height="40" TextChanged="TextBox_TextChanged"
+                         Text="{Binding SupplierName}"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
                 <TextBlock x:Name="FirstNameError" Visibility="Collapsed" FontSize="14" Foreground="Red"/>
@@ -50,7 +51,8 @@
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="First Name"
-                         Height="40" TextChanged="TextBox_TextChanged"/>
+                         Height="40" TextChanged="TextBox_TextChanged"
+                         Text="{Binding SupplierFirstName}"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
                 <TextBlock x:Name="LastError" Visibility="Collapsed" FontSize="14" Foreground="Red"/>
@@ -58,7 +60,9 @@
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Last Name"
-                         Height="40" TextChanged="TextBox_TextChanged"/>
+                         Height="40" TextChanged="TextBox_TextChanged"
+                            Text="{Binding SupplierLastName}"
+                            />
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
                 <TextBlock x:Name="AddressError" Visibility="Collapsed" FontSize="14" Foreground="Red"/>
@@ -67,7 +71,8 @@
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Address"
                          Height="40"
-                         TextChanged="TextBox_TextChanged"/>
+                         TextChanged="TextBox_TextChanged"
+                           Text="{Binding SupplierAddress}" />
             </StackPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -79,14 +84,16 @@
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Country (Optional)"
-                         Height="40"/>
+                         Height="40"
+                                Text="{Binding SupplierCountry}"/>
                 </StackPanel>
                 <StackPanel Margin="0 15 0 0" Grid.Column="1">
                     <hc:TextBox Name="SupplierCityTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="City (Optional)"
-                         Height="40"/>
+                         Height="40"
+                                Text="{Binding SupplierCity}"/>
                 </StackPanel>
             </Grid>
             <StackPanel Margin="0 15 0 0">
@@ -95,7 +102,8 @@
                          HorizontalAlignment="Stretch"
                             hc:InfoElement.Placeholder="Phone Number"
                          hc:BorderElement.CornerRadius="0"
-                         Height="40" TextChanged="TextBox_TextChanged"/>
+                         Height="40" TextChanged="TextBox_TextChanged"
+                            Text="{Binding SupplierPhone}"/>
             </StackPanel>
         </StackPanel>
         <hc:SimplePanel Grid.Row="2">
@@ -109,7 +117,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="DeleteButton_Click"/>
 
                 <Button Name="SaveButton"
                         Margin="0 0 30 0"
@@ -120,7 +128,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="SaveButton_Click"/>
             </hc:FlexPanel>
         </hc:SimplePanel>
     </Grid>

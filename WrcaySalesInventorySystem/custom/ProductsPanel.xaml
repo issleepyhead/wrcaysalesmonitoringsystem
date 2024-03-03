@@ -60,27 +60,31 @@
                       Grid.Row="1"
                       Margin="10 5 10 10"
                       hc:Empty.ShowEmpty="True"
-                      Padding="0" RowHeight="30">
+                      Padding="0" RowHeight="30" SelectionChanged="ProductDataGridView_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn FontSize="13"
-                                    Header="PRODUCT NAME"
-                                    Binding="{Binding PRODUCT_NAME}"
+                                    Header="Product Name"
+                                    Binding="{Binding ProductName}"
                                     Width="*"/>
                     <DataGridTextColumn FontSize="13"
-                                    Header="CATEGORY"
-                                    Binding="{Binding CATEGORY}"
+                                    Header="Category"
+                                    Binding="{Binding CategoryName}"
                                     Width="*"/>
                     <DataGridTextColumn FontSize="13"
-                                    Header="PRICE"
-                                    Binding="{Binding PRICE}"
+                                    Header="Price"
+                                    Binding="{Binding ProductPrice}"
                                     Width="*"/>
                     <DataGridTextColumn FontSize="13"
-                                    Header="COST PRICE"
-                                    Binding="{Binding COST_PRICE}"
+                                    Header="Cost Price"
+                                    Binding="{Binding ProductCost}"
                                     Width="*"/>
                     <DataGridTextColumn FontSize="13"
-                                    Header="DATE ADDED"
-                                    Binding="{Binding DATE_ADDED}"
+                                    Header="Date Added"
+                                    Binding="{Binding DateAdded}"
+                                    Width="*"/>
+                    <DataGridTextColumn FontSize="13"
+                                    Header="Last Updated"
+                                    Binding="{Binding DateUpdated}"
                                     Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>

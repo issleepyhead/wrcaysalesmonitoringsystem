@@ -37,17 +37,14 @@
                     VerticalAlignment="Center">
             <StackPanel Margin="0 8 0 0">
                 <TextBlock Name="CategoryError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
-                <hc:CheckComboBox Name="CategoryCheckCombobox"
+                <hc:ComboBox Name="CategoryCombobox"
                                   HorizontalAlignment="Stretch"
                                   hc:BorderElement.CornerRadius="0"
                                   MinHeight="40"
                                   Height="Auto"
-                                  Style="{StaticResource CheckComboBoxPlus}"
-                                  ShowSelectAllButton="True"
-                                  hc:InfoElement.ShowClearButton="True"
                                   IsTextSearchEnabled="True"
                                   hc:InfoElement.Placeholder="Select Category"
-                                  SelectionMode="Multiple" IsTextSearchCaseSensitive="True"/>
+                                  SelectedValue="{Binding CategoryID}" SelectionChanged="CategoryComboBox_SelectionChanged"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="ProductNameError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
@@ -56,14 +53,14 @@
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                             hc:InfoElement.Placeholder="Product Name"
-                         Height="40"/>
+                         Height="40" TextChanged="ProductNameTextBox_TextChanged"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
                 <hc:TextBox Name="ProductDescriptionTextBox"
                          Text="{Binding ProductDescription}"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
-                         hc:InfoElement.Placeholder="Description"
+                         hc:InfoElement.Placeholder="Description (Optional)"
                          Height="40"/>
             </StackPanel>
             <Grid Margin="0 15 0 0">
@@ -77,8 +74,9 @@
                          Text="{Binding ProductPrice}"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
-                         Height="40" InputScope="Number"
-                            hc:InfoElement.Placeholder="Price"/>
+                         Height="40"
+                            hc:InfoElement.Placeholder="Price"
+                                TextChanged="ProductNameTextBox_TextChanged"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <TextBlock Name="ProductCostError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
@@ -87,22 +85,19 @@
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Cost Price"
-                         Height="40" InputScope="Number"/>
+                         Height="40" TextChanged="ProductNameTextBox_TextChanged"/>
                 </StackPanel>
             </Grid>
             <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="SKUError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
-                <hc:CheckComboBox Name="SKUCheckCombobox"
+                <hc:ComboBox Name="SKUCombobox"
                                   HorizontalAlignment="Stretch"
                                   hc:BorderElement.CornerRadius="0"
                                   MinHeight="40"
                                   Height="Auto"
-                                  Style="{StaticResource CheckComboBoxPlus}"
-                                  ShowSelectAllButton="True"
-                                  hc:InfoElement.ShowClearButton="True"
                                   IsTextSearchEnabled="True"
-                                  hc:InfoElement.Placeholder="Select Category"
-                                  SelectionMode="Multiple" IsTextSearchCaseSensitive="True"/>
+                                  hc:InfoElement.Placeholder="Unit"
+                                  SelectedValue="{Binding ProductUnit}" SelectionChanged="SKUCombobox_SelectionChanged"/>
             </StackPanel>
         </StackPanel>
         <hc:SimplePanel Grid.Row="2">

@@ -1,31 +1,21 @@
 ﻿using HandyControl.Controls;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WrcaySalesInventorySystem.Class;
 using WrcaySalesInventorySystem.Dialogs;
+using WrcaySalesInventorySystem.ViewModel;
 
 namespace WrcaySalesInventorySystem.custom
 {
-    /// <summary>
-    /// Interaction logic for SupplierPanel.xaml
-    /// </summary>
     public partial class SupplierPanel : UserControl, IUpdatePanels
     {
+        private List<ViewModelSupplier>? _data;
         public SupplierPanel()
         {
             InitializeComponent();
+            UpdateUI();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -35,7 +25,25 @@ namespace WrcaySalesInventorySystem.custom
 
         public void UpdateUI()
         {
-            //throw new NotImplementedException();
+            _data = ViewModelSupplier.getAll();
+
+            SuppliersDataGridView.ItemsSource = _data.Take(30);
+            Helpers.PaginationConfig(_data.Count, Pagination);
+        }
+
+        private void Pagination_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
+        {
+            SuppliersDataGridView.ItemsSource = _data?.Skip((e.Info - 1) * 30).Take(30);
+        }
+
+        private void SuppliersDataGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SuppliersDataGridView.SelectedItems.Count > 0)
+            {
+                ViewModelSupplier vmCateg = (ViewModelSupplier)SuppliersDataGridView.SelectedItem;
+                Dialog.Show(new SupplierDialog(vmCateg));
+            }
+            SuppliersDataGridView.SelectedItems.Clear();
         }
     }
 }

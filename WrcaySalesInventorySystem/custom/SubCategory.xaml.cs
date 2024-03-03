@@ -15,20 +15,12 @@ namespace WrcaySalesInventorySystem.custom
         public SubCategory()
         {
             InitializeComponent();
-            UpdateTable();
+            UpdateUI();
         }
 
         private void AddButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Dialog.Show(new SubCategoryDialog());
-        }
-
-        public void UpdateTable()
-        {
-            _data = ViewModelSubCategory.getAll();
-
-            SubCategoriesDataGridView.ItemsSource = _data.Take(30);
-            Helpers.PaginationConfig(_data.Count, Pagination);
         }
 
         private void Pagination_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
@@ -38,7 +30,30 @@ namespace WrcaySalesInventorySystem.custom
 
         public void UpdateUI()
         {
-            //throw new NotImplementedException();
+            _data = ViewModelSubCategory.getAll();
+
+            SubCategoriesDataGridView.ItemsSource = _data.Take(30);
+            Helpers.PaginationConfig(_data.Count, Pagination);
+        }
+
+        private void CategoriesDataGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SubCategoriesDataGridView.SelectedItems.Count > 0)
+            {
+                ViewModelSubCategory vmCateg = (ViewModelSubCategory)SubCategoriesDataGridView.SelectedItem;
+                Dialog.Show(new SubCategoryDialog(vmCateg));
+            }
+            SubCategoriesDataGridView.SelectedItems.Clear();
+        }
+
+        private void SubCategoriesDataGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SubCategoriesDataGridView.SelectedItems.Count > 0)
+            {
+                ViewModelSubCategory vmCateg = (ViewModelSubCategory)SubCategoriesDataGridView.SelectedItem;
+                Dialog.Show(new SubCategoryDialog(vmCateg));
+            }
+            SubCategoriesDataGridView.SelectedItems.Clear();
         }
     }
 }

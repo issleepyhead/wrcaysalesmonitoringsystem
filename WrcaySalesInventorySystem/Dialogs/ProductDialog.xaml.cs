@@ -1,9 +1,16 @@
-﻿using System.Text.RegularExpressions;
+﻿using HandyControl.Controls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using WrcaySalesInventorySystem.Class;
+using WrcaySalesInventorySystem.Classs.Interface;
 using WrcaySalesInventorySystem.custom;
 using WrcaySalesInventorySystem.ViewModel;
+using TextBox = HandyControl.Controls.TextBox;
 
 namespace WrcaySalesInventorySystem.Dialogs
 {
@@ -12,53 +19,134 @@ namespace WrcaySalesInventorySystem.Dialogs
     /// </summary>
     public partial class ProductDialog : UserControl
     {
-        //private readonly ApplicationDatabaseContext dbContext = new();
-        //private readonly ViewModelProduct _vmModel;
-        //private readonly Tblproduct tblproduct = new();
-        public ProductDialog(ProductsPanel productsPanel, ViewModelProduct? viewModel = null)
+        private ViewModelProduct _viewModel;
+        private MainWindow? _mainWindow;
+
+        public ProductDialog(ViewModelProduct? viewModel = null)
         {
             InitializeComponent();
-            //if (viewModel != null)
-            //{
-            //    _vmModel = viewModel;
-            //}
-            //else
-            //{
-            //    _vmModel = new ViewModelProduct(tblproduct);
-            //}
-            //DataContext = _vmModel;
+            _mainWindow = Application.Current?.Windows.OfType<MainWindow>().FirstOrDefault<MainWindow>();
+            if (viewModel != null)
+            {
+                _viewModel = viewModel;
+                SaveButton.Content = "Update";
+            }
+            else
+            {
+                _viewModel = new();
+                DeleteButton.Visibility = Visibility.Collapsed;
+            }
+            DataContext = _viewModel;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            //CategoryCheckCombobox.ItemsSource = dbContext.Tblcategories.ToArray();
-            //CategoryCheckCombobox.DisplayMemberPath = "CategoryName";
-            //CategoryCheckCombobox.SelectedValuePath = "Id";
+            SqlConnection conn = new BaseConnection().getConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM viewcategories", conn);
+            DataTable dataTable = new();
+            SqlDataAdapter adapter = new(cmd);
+            adapter.Fill(dataTable);
+            CategoryCombobox.ItemsSource = dataTable.DefaultView;
+            CategoryCombobox.DisplayMemberPath = "category_name";
+            CategoryCombobox.SelectedValuePath = "id";
+            CategoryCombobox.SelectedIndex = 0;
+
+
+             conn = new BaseConnection().getConnection();
+            cmd = new SqlCommand("SELECT id, unit_name FROM tblproductunit", conn);
+            dataTable = new();
+             adapter = new(cmd);
+            adapter.Fill(dataTable);
+
+
+            SKUCombobox.ItemsSource = dataTable.DefaultView;
+            SKUCombobox.DisplayMemberPath = "unit_name";
+            SKUCombobox.SelectedValuePath = "id";
+            SKUCombobox.SelectedIndex = 0;
 
         }
 
         private void CategoryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //_vmModel.Category = (Tblcategory)CategoryCheckCombobox.SelectedItem;
+            if (CategoryCombobox.SelectedIndex != -1)
+                _viewModel.CategoryID = (int)CategoryCombobox.SelectedValue;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            ViewModelProduct _viewModel = new();
-            _viewModel.ProductName = "Yero";
-            _viewModel.ProductDescription = null;
-            _viewModel.ProductPrice = 10;
-            _viewModel.ProductCost = 10;
-            _viewModel.CategoryID = 98;
-            AddCommand addCommand = new(_viewModel);
-            bool res = addCommand.Execute();
+            if (_viewModel.Exists())
+            {
+                Growl.Info("Category already exists!");
+                return;
+            }
+
+            IDataExecutor? command;
+            if (_viewModel.ProductID != 0)
+            {
+                command = new UpdateCommand(_viewModel);
+            }
+            else
+            {
+                command = new AddCommand(_viewModel);
+            }
+
+
+            if (command != null && command.Execute())
+            {
+                Growl.Success((_viewModel?.ProductID != 0) ? "Product has been updated." : "Product has been added.");
+                Helpers.CloseDialog(Closebtn);
+            }
+            else
+                Growl.Error((_viewModel?.ProductID != 0) ? "Failed updating the product." : "Failed adding the product.");
+            _mainWindow?.UpdateUI();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (_viewModel.Delete())
+            {
+                Growl.Success("Product has been deleted.");
+                Helpers.CloseDialog(Closebtn);
+            }
+            else
+            {
+                Growl.Warning("Failed deleting product.");
+            }
+            _mainWindow?.UpdateUI();
         }
 
+        private void SKUCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _viewModel.ProductUnit = (int)SKUCombobox.SelectedValue;
+        }
+
+        private void ProductNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender.Equals(ProductNameTextBox))
+            {
+                Helpers.Check((TextBox)sender, ProductNameError, InputType.STRING_INPUT, "Please provide a valid name.");
+            } else if (sender.Equals(ProductPriceTextBox))
+            {
+                Helpers.Check((TextBox)sender, ProductPriceError, InputType.NUMERIC_INPUT, "Please provide a valid price.");
+                if (ProductPriceError.IsVisible)
+                {
+                    ProductCostError.Visibility = Visibility.Visible;
+                } else
+                {
+                    ProductCostError.Visibility = Visibility.Collapsed;
+                }
+            } else
+            {
+                Helpers.Check((TextBox)sender, ProductCostError, InputType.NUMERIC_INPUT, "Please provide a valid cost.");
+                if(ProductCostError.IsVisible)
+                {
+                    ProductPriceError.Visibility = Visibility.Visible;
+                } else
+                {
+                    ProductPriceError.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
     }
 
 }

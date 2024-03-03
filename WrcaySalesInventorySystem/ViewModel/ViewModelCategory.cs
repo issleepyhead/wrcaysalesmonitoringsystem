@@ -12,7 +12,7 @@ namespace WrcaySalesInventorySystem.ViewModel
 {
     public class ViewModelCategory : ViewModelBase , IDataCommand
     {
-        private SqlConnection _sqlConnection;
+        private SqlConnection? _sqlConnection;
         private SqlCommand? _sqlCommand;
         private string? _categoryName;
         private string? _categoryDescription;
@@ -129,7 +129,7 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
             finally
             {
-                _sqlConnection.Dispose();
+                _sqlConnection?.Dispose();
             }
         }
 
@@ -182,7 +182,7 @@ namespace WrcaySalesInventorySystem.ViewModel
                 return false;
             } finally
             {
-                _sqlConnection.Dispose();
+                _sqlConnection?.Dispose();
             }
         }
 
@@ -211,13 +211,13 @@ namespace WrcaySalesInventorySystem.ViewModel
                 return false;
             } finally
             {
-                _sqlConnection.Dispose();
+                _sqlConnection?.Dispose();
             }
         }
 
         public static List<ViewModelCategory> getAll()
         {
-            List<ViewModelCategory> vmData = new List<ViewModelCategory>();
+            List<ViewModelCategory> vmData = new();
             SqlConnection _sqlConnection = new(Settings.Default.wrcaydbConnectionString);
             try
             {
@@ -254,7 +254,7 @@ namespace WrcaySalesInventorySystem.ViewModel
                 return new List<ViewModelCategory>();
             } finally
             {
-                _sqlConnection.Dispose();
+                _sqlConnection?.Dispose();
             }
             
         }

@@ -12,7 +12,7 @@ TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\App.xaml
 30-210268081
 
-46-1527266904
+48-54904627
 202804911369
 Custom\AccountPanel.xaml;Custom\AuditTrailPanel.xaml;Custom\CategoriesPanel.xaml;Custom\CategoryPanel.xaml;Custom\DeliveryPanel.xaml;Custom\ExpensesPanel.xaml;Custom\InventoryPanel.xaml;Custom\POSPanel.xaml;Custom\ProductsPanel.xaml;Custom\ReportsPanel.xaml;Custom\SubCategory.xaml;Custom\SupplierPanel.xaml;Custom\TransactionPanel.xaml;Custom\VATPanel.xaml;Dialogs\CategoryDialog.xaml;Dialogs\DeliveryCartDialog.xaml;Dialogs\DeliveryDialog.xaml;Dialogs\DiscountDialog.xaml;Dialogs\ProductDialog.xaml;Dialogs\SubCategoryDialog.xaml;Dialogs\SupplierDialog.xaml;Dialogs\TransactionDialog.xaml;Dialogs\UserDialog.xaml;Dialogs\VATDialog.xaml;Forms\MainWindow.xaml;Resources\colors\colors.xaml;Resources\imgs\img.xaml;Resources\strings\strings.xaml;Resources\styles\style.xaml;Resources\theme\colors.xaml;
 

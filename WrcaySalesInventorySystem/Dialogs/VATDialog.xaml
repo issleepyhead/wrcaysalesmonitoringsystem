@@ -41,7 +41,7 @@
                 <hc:TextBox Name="VATNameTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
-                         hc:InfoElement.Placeholder="Category Name"
+                         hc:InfoElement.Placeholder="VAT Name"
                          Text="{Binding VatName}"
                          Height="40"/>
             </StackPanel>
@@ -52,8 +52,8 @@
                              hc:BorderElement.CornerRadius="0"
                              MinHeight="40"
                              Height="Auto"
-                             Text="{Binding VATValue}"
-                             hc:InfoElement.Placeholder="Description"
+                             Text="{Binding VatValue}"
+                             hc:InfoElement.Placeholder="Value"
                              AcceptsReturn="True"/>
             </StackPanel>
         </StackPanel>
@@ -68,7 +68,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="DeleteCategoryButton_Click"/>
                 <Button Name="SaveCategoryButton"
                         Margin="0 0 30 0"
                         Foreground="#fff"
@@ -78,7 +78,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="SaveCategoryButton_Click"/>
             </hc:FlexPanel>
         </hc:SimplePanel>
     </Grid>

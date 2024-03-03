@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WrcaySalesInventorySystem.Dialogs"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d"
-             Width="500">
+             Width="500" Loaded="UserControl_Loaded">
     <Grid Background="{StaticResource ApplicationLight}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -36,15 +36,16 @@
                     Grid.Row="1"
                     Margin="30 8"
                     VerticalAlignment="Center">
-            <StackPanel Margin="0 8 0 0">
+            <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="SubCategoryNameError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="SubCategoryNameTextBox"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Subcategory Name"
-                         Height="40" TextChanged="SubCategoryNameTextBox_TextChanged"/>
+                         Height="40" TextChanged="SubCategoryNameTextBox_TextChanged"
+                            Text="{Binding CategoryName}"/>
             </StackPanel>
-            <StackPanel Margin="0 8 0 0">
+            <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="SubCategoryDescriptionError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="SubCategoryDescriptionTextBox"
                          HorizontalAlignment="Stretch"
@@ -52,9 +53,10 @@
                          MinHeight="40"
                          Height="Auto"
                          AcceptsReturn="True"
-                         hc:InfoElement.Placeholder="Description"/>
+                         hc:InfoElement.Placeholder="Description"
+                         Text="{Binding CategoryDescription}"/>
             </StackPanel>
-            <StackPanel Margin="0 8 0 0">
+            <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="CategoryError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:ComboBox Name="CategoryCheckCombobox"
                                   HorizontalAlignment="Stretch"
@@ -63,7 +65,8 @@
                                   Height="Auto"
                                   hc:InfoElement.ShowClearButton="True"
                                   IsTextSearchEnabled="True"
-                                  hc:InfoElement.Placeholder="Select Category"/>
+                                  hc:InfoElement.Placeholder="Select Category"
+                                  SelectedValue="{Binding ParentCateogryID}" SelectionChanged="CategoryCheckCombobox_SelectionChanged"/>
             </StackPanel>
         </StackPanel>
         <hc:SimplePanel Grid.Row="2">
@@ -77,7 +80,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="DeleteCategoryButton_Click"/>
                 <Button Name="SaveCategoryButton"
                         Margin="0 0 30 0"
                         Foreground="#fff"
@@ -87,7 +90,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="SaveCategoryButton_Click"/>
             </hc:FlexPanel>
         </hc:SimplePanel>
     </Grid>

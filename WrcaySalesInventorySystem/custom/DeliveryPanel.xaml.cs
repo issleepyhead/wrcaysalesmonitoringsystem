@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WrcaySalesInventorySystem.Class;
+using WrcaySalesInventorySystem.Dialogs;
 
 namespace WrcaySalesInventorySystem.custom
 {
@@ -29,6 +31,11 @@ namespace WrcaySalesInventorySystem.custom
         public void UpdateUI()
         {
             //throw new NotImplementedException();
+        }
+
+        private void DeliveryAddDeliveryButton_Click(object sender, RoutedEventArgs e)
+        {
+            Dialog.Show(new DeliveryCartDialog());
         }
     }
 }

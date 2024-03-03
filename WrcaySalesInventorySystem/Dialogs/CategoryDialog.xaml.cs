@@ -16,10 +16,9 @@ namespace WrcaySalesInventorySystem.Dialogs
     /// </summary>
     public partial class CategoryDialog : UserControl
     {
-        private ViewModelCategory _vmCategory = new();
-        private CategoryPanel _categPanel;
-        private MainWindow? mainWindow;
-        public CategoryDialog(CategoryPanel categPanel, ViewModelCategory? vmCategory = null)
+        private readonly ViewModelCategory _vmCategory = new();
+        private readonly MainWindow? mainWindow;
+        public CategoryDialog(ViewModelCategory? vmCategory = null)
         {
             InitializeComponent();
             if (vmCategory != null)
@@ -31,24 +30,27 @@ namespace WrcaySalesInventorySystem.Dialogs
                 DeleteCategoryButton.Visibility = Visibility.Collapsed;
             }
             mainWindow = Application.Current?.Windows.OfType<MainWindow>().FirstOrDefault();
-            _categPanel = categPanel;
             DataContext = _vmCategory;
         }
 
         private void SaveCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            IDataExecutor? command = null;
-
+            if(!Helpers.Check(CategoryNameTextBox, CategoryNameError, InputType.STRING_INPUT, "Please provide a valid category name"))
+            {
+                return;
+            }
             if (_vmCategory.Exists())
             {
                 Growl.Info("Category already exists!");
                 return;
             }
 
-            if(_vmCategory.CategoryID != 0)
+            IDataExecutor? command;
+            if (_vmCategory.CategoryID != 0)
             {
                 command = new UpdateCommand(_vmCategory);
-            } else
+            }
+            else
             {
                 command = new AddCommand(_vmCategory);
             }

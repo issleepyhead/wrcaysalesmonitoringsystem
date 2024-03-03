@@ -146,7 +146,7 @@
             <panels:SupplierPanel x:Name="SupplierPanel" Visibility="Collapsed" Padding="20"/>
             <panels:TransactionPanel x:Name="TransactionPanel" Visibility="Collapsed" Padding="20"/>
             <panels:VATPanel x:Name="VATPanel" Visibility="Collapsed" Padding="20"/>
-            <panels:POSPanel x:Name="POSPanel" Padding="10"/>
+            <panels:POSPanel x:Name="POSPanel" Visibility="Collapsed" Padding="10"/>
         </Grid>
     </Grid>
 </hc:Window>

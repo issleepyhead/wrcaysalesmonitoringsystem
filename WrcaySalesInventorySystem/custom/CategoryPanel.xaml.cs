@@ -13,33 +13,25 @@ namespace WrcaySalesInventorySystem.custom
 {
     public partial class CategoryPanel : UserControl, IUpdatePanels
     {
-        private MainWindow mainWindow = Application.Current.Windows.Cast<MainWindow>().FirstOrDefault();
         private List<ViewModelCategory>? _data;
         public CategoryPanel()
         {
             InitializeComponent();
             UpdateUI();
+
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Dialog.Show(new CategoryDialog(this));
+            Dialog.Show(new CategoryDialog());
         }
-
-        //public void UpdateTable()
-        //{
-        //    _data = ViewModelCategory.getAll();
-
-        //    CategoriesDataGridView.ItemsSource = _data.Take(30);
-        //    Helpers.PaginationConfig(_data.Count, Pagination);
-        //}
 
         private void CategoriesDataGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (CategoriesDataGridView.SelectedItems.Count > 0)
             {
                 ViewModelCategory vmCateg = (ViewModelCategory)CategoriesDataGridView.SelectedItem;
-                Dialog.Show(new CategoryDialog(this, vmCateg));
+                Dialog.Show(new CategoryDialog(vmCateg));
             }
             CategoriesDataGridView.SelectedItems.Clear();
         }

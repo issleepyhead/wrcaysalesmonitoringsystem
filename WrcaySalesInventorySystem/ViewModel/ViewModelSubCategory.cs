@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using WrcaySalesInventorySystem.Class;
@@ -11,7 +10,7 @@ namespace WrcaySalesInventorySystem.ViewModel
 {
     public class ViewModelSubCategory : ViewModelBase, IDataCommand
     {
-        private SqlConnection _sqlConnection = new BaseConnection().getConnection();
+        private SqlConnection? _sqlConnection;
         private SqlCommand? _sqlCommand;
         private string? _categoryName;
         private string? _categoryDescription;
@@ -137,6 +136,7 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
+                _sqlConnection = new BaseConnection().getConnection();
                 _sqlCommand = new SqlCommand(
                     "InsertSubcategoryProcedure @category_name, @category_description, @parent_id, @user_id",
                     _sqlConnection
@@ -150,6 +150,9 @@ namespace WrcaySalesInventorySystem.ViewModel
             catch (Exception)
             {
                 return false;
+            } finally
+            {
+                _sqlConnection?.Dispose();
             }
         }
 
@@ -157,6 +160,7 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
+                _sqlConnection = new BaseConnection().getConnection();
                 _sqlCommand = new SqlCommand(
                     "DeleteSubcategoryProcedure @category_id, @user_id",
                     _sqlConnection
@@ -168,6 +172,9 @@ namespace WrcaySalesInventorySystem.ViewModel
             catch
             {
                 return false;
+            } finally
+            {
+                _sqlConnection?.Dispose();
             }
         }
 
@@ -175,28 +182,21 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
-                if (CategoryID != 0)
-                {
-                    _sqlCommand = new SqlCommand(
-                        "SELECT COUNT(*) FROM tblcategories WHERE category_name = @category_name",
-                        _sqlConnection
-                     );
-                    _sqlCommand.Parameters.AddWithValue("@category_name", CategoryName);
-                }
-                else
-                {
-                    _sqlCommand = new SqlCommand(
-                        "SELECT COUNT(*) FROM tblcategories WHERE category_name = @category_name AND id = @category_id",
-                        _sqlConnection
-                    );
-                    _sqlCommand.Parameters.AddWithValue("@category_name", CategoryName);
-                    _sqlCommand.Parameters.AddWithValue("@category_id", CategoryID);
-                }
+                _sqlConnection = new BaseConnection().getConnection();
+                _sqlCommand = new SqlCommand(
+                    "SELECT COUNT(*) FROM tblcategories WHERE category_name = @category_name AND parent_id = @parent_id",
+                    _sqlConnection
+                );
+                _sqlCommand.Parameters.AddWithValue("@category_name", CategoryName);
+                _sqlCommand.Parameters.AddWithValue("@parent_id", ParentCategoryID);
                 return (int)_sqlCommand.ExecuteScalar() > 0;
             }
             catch
             {
                 return false;
+            } finally
+            {
+                _sqlConnection?.Dispose();
             }
         }
 
@@ -209,6 +209,7 @@ namespace WrcaySalesInventorySystem.ViewModel
         {
             try
             {
+                _sqlConnection = new BaseConnection().getConnection();
                 _sqlCommand = new SqlCommand(
                     "UpdateSubcategoryProcedure @id,  @category_name, @category_description, @pid, @user_id",
                     _sqlConnection
@@ -223,20 +224,51 @@ namespace WrcaySalesInventorySystem.ViewModel
             catch (Exception)
             {
                 return false;
+            } finally
+            {
+                _sqlConnection?.Dispose();
             }
         }
 
-        public static List<ViewModelSubCategory> getAll()
-        {
-            SqlConnection _sqlConnection = new(Settings.Default.wrcaydbConnectionString);
-            SqlCommand _sqlCommand = new SqlCommand(
-                "SELECT * FROM viewtblsubcategories",
-                _sqlConnection
-            );
+        public static List<ViewModelSubCategory> getAll(bool haystack = false)
+        { 
+
+            SqlConnection _sqlConnection = new BaseConnection().getConnection();
             List<ViewModelSubCategory> vmData = new List<ViewModelSubCategory>();
+            SqlCommand _sqlCommand;
+            if (haystack)
+            {
+                _sqlCommand = new(
+                    "SELECT * FROM viewcategories",
+                    _sqlConnection
+                );
+                SqlDataAdapter adaptera = new(_sqlCommand);
+                DataTable dataa = new();
+                adaptera.Fill(dataa);
+                if (dataa != null)
+                {
+                    for (int i = 0; i < dataa.Rows.Count; i++)
+                    {
+                        ViewModelSubCategory viewModel = new();
+                        viewModel.CategoryID = (int)dataa.Rows[i][0];
+                        viewModel.CategoryName = dataa.Rows[i][1].ToString();
+                        vmData.Add(viewModel);
+                    }
+                }
+                return vmData;
+            }
+            else
+            {
+                _sqlCommand = new(
+                    "SELECT * FROM viewtblsubcategories",
+                    _sqlConnection
+                );
+                
+            }
             SqlDataAdapter adapter = new(_sqlCommand);
             DataTable data = new();
             adapter.Fill(data);
+
             if (data != null)
             {
                 for (int i = 0; i < data?.Rows.Count; i++)
