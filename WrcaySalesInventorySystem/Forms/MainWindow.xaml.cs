@@ -12,9 +12,8 @@ namespace WrcaySalesInventorySystem
     public partial class MainWindow : HandyControl.Controls.Window, System.Windows.Markup.IComponentConnector, IUpdatePanels
     {
 
-        public MainWindow(/*ApplicationDatabaseContext databaseContext*/)
+        public MainWindow()
         {
-            //_databaseContext = databaseContext;
             InitializeComponent();
         }
 
@@ -22,7 +21,7 @@ namespace WrcaySalesInventorySystem
         {
             UserControl[] panels = { AccountPanel, ProductsPanel, AuditTralPanel,
                 CategoriesPanel, SupplierPanel, TransactionPanel,   InventoryPanel, 
-                DeliveryPanel, VATPanel, POSPanel
+                DeliveryPanel, POSPanel
             };
 
             for (int i = 0; i < panels.Length; i++)
@@ -55,9 +54,6 @@ namespace WrcaySalesInventorySystem
                         case "suppliers":
                             SupplierPanel.Visibility = Visibility.Visible;
                             break;
-                        case "vat":
-                            VATPanel.Visibility = Visibility.Visible;
-                            break;
                         case "stocks":
                             InventoryPanel.Visibility = Visibility.Visible;
                             break;
@@ -84,7 +80,7 @@ namespace WrcaySalesInventorySystem
         {
             IUpdatePanels[] panels = { AccountPanel, ProductsPanel, AuditTralPanel,
                 CategoriesPanel, SupplierPanel, TransactionPanel,   InventoryPanel,
-                DeliveryPanel, VATPanel, POSPanel
+                DeliveryPanel, POSPanel
             };
 
             foreach (IUpdatePanels panel in panels)

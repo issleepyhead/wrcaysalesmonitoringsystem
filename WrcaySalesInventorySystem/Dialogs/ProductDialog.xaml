@@ -31,38 +31,33 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"/>
         </hc:SimplePanel>
+
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
                     Margin="30 12"
                     VerticalAlignment="Center">
-            <StackPanel Margin="0 8 0 0">
+            <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="CategoryError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:ComboBox Name="CategoryCombobox"
-                                  HorizontalAlignment="Stretch"
-                                  hc:BorderElement.CornerRadius="0"
-                                  MinHeight="40"
-                                  Height="Auto"
-                                  IsTextSearchEnabled="True"
-                                  hc:InfoElement.Placeholder="Select Category"
-                                  SelectedValue="{Binding CategoryID}" SelectionChanged="CategoryComboBox_SelectionChanged"/>
+                            HorizontalAlignment="Stretch"
+                            hc:BorderElement.CornerRadius="0"
+                            MinHeight="40"
+                            Height="Auto"
+                            IsTextSearchEnabled="True"
+                            IsEditable="True"
+                            hc:InfoElement.Placeholder="Select Category"
+                            SelectedValue="{Binding CategoryID}" SelectionChanged="CategoryComboBox_SelectionChanged"/>
             </StackPanel>
             <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="ProductNameError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:TextBox Name="ProductNameTextBox"
-                         Text="{Binding ProductName}"
-                         HorizontalAlignment="Stretch"
-                         hc:BorderElement.CornerRadius="0"
+                            Text="{Binding ProductName}"
+                            HorizontalAlignment="Stretch"
+                            hc:BorderElement.CornerRadius="0"
                             hc:InfoElement.Placeholder="Product Name"
-                         Height="40" TextChanged="ProductNameTextBox_TextChanged"/>
+                            Height="40" TextChanged="ProductNameTextBox_TextChanged"/>
             </StackPanel>
-            <StackPanel Margin="0 15 0 0">
-                <hc:TextBox Name="ProductDescriptionTextBox"
-                         Text="{Binding ProductDescription}"
-                         HorizontalAlignment="Stretch"
-                         hc:BorderElement.CornerRadius="0"
-                         hc:InfoElement.Placeholder="Description (Optional)"
-                         Height="40"/>
-            </StackPanel>
+
             <Grid Margin="0 15 0 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -75,7 +70,7 @@
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          Height="40"
-                            hc:InfoElement.Placeholder="Price"
+                            hc:InfoElement.Placeholder="Selling Price"
                                 TextChanged="ProductNameTextBox_TextChanged"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
@@ -84,10 +79,19 @@
                          Text="{Binding ProductCost}"
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
-                         hc:InfoElement.Placeholder="Cost Price"
+                         hc:InfoElement.Placeholder="Purchase Price"
                          Height="40" TextChanged="ProductNameTextBox_TextChanged"/>
                 </StackPanel>
             </Grid>
+            <StackPanel Margin="0 15 0 0">
+                <hc:TextBox Name="ProductMargin"
+                         Text="{Binding ProductDescription}"
+                         HorizontalAlignment="Stretch"
+                         hc:BorderElement.CornerRadius="0"
+                         hc:InfoElement.Placeholder="Margin (%)"
+                         Height="40"
+                         IsEnabled="False"/>
+            </StackPanel>
             <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="SKUError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:ComboBox Name="SKUCombobox"

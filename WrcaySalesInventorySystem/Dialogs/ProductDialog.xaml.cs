@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using WrcaySalesInventorySystem.Class;
 using WrcaySalesInventorySystem.Classs.Interface;
 using WrcaySalesInventorySystem.custom;
@@ -134,6 +135,7 @@ namespace WrcaySalesInventorySystem.Dialogs
                 } else
                 {
                     ProductCostError.Visibility = Visibility.Collapsed;
+                    ProductCostTextBox.BorderBrush = new BrushConverter().ConvertFromString("#FFE0E0E0") as Brush;
                 }
             } else
             {
@@ -144,6 +146,7 @@ namespace WrcaySalesInventorySystem.Dialogs
                 } else
                 {
                     ProductPriceError.Visibility = Visibility.Collapsed;
+                    ProductPriceTextBox.BorderBrush = new BrushConverter().ConvertFromString("#FFE0E0E0") as Brush;
                 }
             }
         }

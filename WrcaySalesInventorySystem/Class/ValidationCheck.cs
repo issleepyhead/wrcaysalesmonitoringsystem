@@ -14,6 +14,7 @@ namespace WrcaySalesInventorySystem.Class
                         return false;
                     break;
                 case InputType.NUMERIC_INPUT:
+                    input = input.TrimStart('0');
                     if (!Regex.IsMatch(input, "^(\\d+)?\\.?(\\d+)$"))
                         return false;
                     break;

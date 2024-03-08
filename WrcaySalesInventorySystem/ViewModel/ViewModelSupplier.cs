@@ -47,7 +47,7 @@ namespace WrcaySalesInventorySystem.ViewModel
             set
             {
                 _supplierID = value;
-                Changed("SupplierIDN");
+                Changed("SupplierID");
             }
         }
 

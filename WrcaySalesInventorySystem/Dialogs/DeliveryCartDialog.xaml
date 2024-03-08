@@ -6,11 +6,12 @@
              xmlns:local="clr-namespace:WrcaySalesInventorySystem.Dialogs"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d"
-             Height="550" Width="800">
-    <Grid Background="{StaticResource ApplicationPrimaryLight}">
+             Height="600" Width="850" Loaded="UserControl_Loaded">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="50" />
+            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
@@ -81,11 +82,21 @@
                                  IsEditable="True"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Delivery Date"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               FontWeight="Medium"/>
                     <hc:DatePicker Name="DeliveryDate"
                                    Width="190"
                                    Height="35"
-                                   Margin="0 0 8 0"/>
-                    <Button Name="AddItemButton"
+                                   Margin="8 0 0 0"/>
+                    
+                </StackPanel>
+            </hc:FlexPanel>
+        </hc:SimplePanel>
+        <hc:FlexPanel Grid.Row="3" Margin="30 0"
+                      JustifyContent="FlexEnd">
+            <Button Name="AddItemButton"
                             Foreground="{StaticResource ApplicationPrimaryLight}"
                             FontSize="12"
                             hc:BorderElement.CornerRadius="0"
@@ -95,11 +106,9 @@
                             Height="35"
                             Width="140"
                             BorderThickness="0"
-                            Background="{StaticResource ApplicationPrimaryDark}"/>
-                </StackPanel>
-            </hc:FlexPanel>
-        </hc:SimplePanel>
-        <Grid Grid.Row="3"
+                            Background="{StaticResource ApplicationPrimaryDark}" Click="AddItemButton_Click"/>
+        </hc:FlexPanel>
+        <Grid Grid.Row="4"
               Margin="0 0 0 8">
             <DataGrid Name="ItemsDataGridView"
                       RowStyle="{DynamicResource CustomDataGridRowStyle}"
@@ -115,29 +124,29 @@
                       Grid.ColumnSpan="2" RowHeight="30">
                 <DataGrid.Columns>
                     <DataGridTextColumn FontSize="13"
-                                        Header="PRODUCT NAME"
-                                        Binding="{Binding PRODUCT_NAME}"
+                                        Header="Product Name"
+                                        Binding="{Binding ProductName}"
                                         Width="*"/>
                     <DataGridTextColumn FontSize="13"
-                                        Header="QUANTITY"
-                                        Binding="{Binding QUANTITY}"
+                                        Header="Quantity"
+                                        Binding="{Binding Quantity}"
                                         Width="*"/>
                     <DataGridTextColumn FontSize="13"
-                                        Header="PRICE"
-                                        Binding="{Binding PRICE}"
+                                        Header="Price"
+                                        Binding="{Binding Price}"
                                         Width="*"/>
                     <DataGridTextColumn FontSize="13"
-                                        Header="COST"
-                                        Binding="{Binding COST}"
+                                        Header="Cost"
+                                        Binding="{Binding Cost}"
                                         Width="*"/>
                     <DataGridTextColumn FontSize="13"
-                                        Header="TOTAL"
-                                        Binding="{Binding TOTAL}"
+                                        Header="Total"
+                                        Binding="{Binding Total}"
                                         Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <hc:SimplePanel Grid.Row="4">
+        <hc:SimplePanel Grid.Row="5">
             <hc:FlexPanel JustifyContent="FlexEnd">
                 <Button Name="CancelButton"
                         Margin="0 0 10 0"
@@ -148,7 +157,8 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="CancelButton_Click"
+                        Visibility="Collapsed"/>
                 <Button Name="RecievedButton"
                         Margin="0 0 10 0"
                         Foreground="#fff"
@@ -158,7 +168,8 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="RecievedButton_Click"
+                        Visibility="Collapsed"/>
                 <Button Name="SaveButton"
                         Margin="0 0 30 0"
                         Foreground="#fff"
@@ -168,7 +179,7 @@
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                        Background="{StaticResource ApplicationPrimaryDark}" Click="SaveButton_Click"/>
             </hc:FlexPanel>
         </hc:SimplePanel>
     </Grid>

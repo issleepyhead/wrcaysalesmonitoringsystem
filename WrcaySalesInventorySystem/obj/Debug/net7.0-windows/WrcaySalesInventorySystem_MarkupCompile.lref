@@ -2,7 +2,6 @@
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\App.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\AccountPanel.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\AuditTrailPanel.xaml;;
-FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\CategoriesPanel.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\CategoryPanel.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\DeliveryPanel.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\ExpensesPanel.xaml;;
@@ -10,19 +9,15 @@ FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\Inventory
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\POSPanel.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\ProductsPanel.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\ReportsPanel.xaml;;
-FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\SubCategory.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\SupplierPanel.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\TransactionPanel.xaml;;
-FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Custom\VATPanel.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\CategoryDialog.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\DeliveryCartDialog.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\DeliveryDialog.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\DiscountDialog.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\ProductDialog.xaml;;
-FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\SubCategoryDialog.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\SupplierDialog.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\TransactionDialog.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\UserDialog.xaml;;
-FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Dialogs\VATDialog.xaml;;
 FD:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\Forms\MainWindow.xaml;;
 

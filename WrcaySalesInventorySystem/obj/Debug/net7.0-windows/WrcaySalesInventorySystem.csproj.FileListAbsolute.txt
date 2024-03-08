@@ -166,7 +166,6 @@ D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\DeliveryDialog.g.cs
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\DiscountDialog.g.cs
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\ProductDialog.g.cs
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\SubCategoryDialog.g.cs
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\SupplierDialog.g.cs
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\TransactionDialog.g.cs
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\UserDialog.g.cs
@@ -179,7 +178,6 @@ D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\DeliveryDialog.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\DiscountDialog.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\ProductDialog.baml
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\SubCategoryDialog.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\SupplierDialog.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\TransactionDialog.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\UserDialog.baml
@@ -245,14 +243,6 @@ D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\n
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\custom\TransactionPanel.baml
 D:\SCHOOL FILES\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\imgs\img.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Resources\imgs\img.baml
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\VATDialog.g.cs
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\VATDialog.baml
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\VATPanel.g.cs
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\VATPanel.baml
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\CategoriesPanel.g.cs
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\SubCategory.g.cs
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\CategoriesPanel.baml
-D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\SubCategory.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\ExpensesPanel.g.cs
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\ExpensesPanel.baml
 D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\bin\Debug\net7.0-windows\System.Data.SqlClient.dll

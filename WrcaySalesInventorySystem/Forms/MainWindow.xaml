@@ -64,11 +64,11 @@
                         <TextBlock Text="Suppliers" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Selected="SelectedPanel">
+                <!--<hc:SideMenuItem Selected="SelectedPanel">
                     <hc:SideMenuItem.Header>
                         <TextBlock Text="VAT" Margin="30 0 0 0" FontSize="14"/>
                     </hc:SideMenuItem.Header>
-                </hc:SideMenuItem>
+                </hc:SideMenuItem>-->
             </hc:SideMenuItem>
 
             <hc:SideMenuItem Selected="SelectedPanel">
@@ -139,13 +139,12 @@
         <Grid Grid.Column="1">
             <panels:AccountPanel x:Name="AccountPanel" Padding="20" Visibility="Collapsed"/>
             <panels:AuditTrailPanel x:Name="AuditTralPanel" Visibility="Collapsed" Padding="20"/>
-            <panels:CategoriesPanel x:Name="CategoriesPanel" Visibility="Collapsed" Padding="20"/>
+            <panels:CategoryPanel x:Name="CategoriesPanel" Visibility="Collapsed" Padding="20"/>
             <panels:DeliveryPanel x:Name="DeliveryPanel" Visibility="Collapsed" Padding="20"/>
             <panels:InventoryPanel x:Name="InventoryPanel" Visibility="Collapsed" Padding="20"/>
             <panels:ProductsPanel x:Name="ProductsPanel" Visibility="Collapsed" Padding="20"/>
             <panels:SupplierPanel x:Name="SupplierPanel" Visibility="Collapsed" Padding="20"/>
             <panels:TransactionPanel x:Name="TransactionPanel" Visibility="Collapsed" Padding="20"/>
-            <panels:VATPanel x:Name="VATPanel" Visibility="Collapsed" Padding="20"/>
             <panels:POSPanel x:Name="POSPanel" Visibility="Collapsed" Padding="10"/>
         </Grid>
     </Grid>
