@@ -59,28 +59,28 @@
                     Margin="10 0 10 10" RowHeight="30">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="13"
-                                    Header="REFERENCE NO."
-                                    Binding="{Binding REFERENCE_NUMBER}"
+                                    Header="Invoice Number"
+                                    Binding="{Binding ReferenceNumber}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Binding="{Binding SUPPLIER}"
-                                    Header="SUPPLIER"
+                                    Binding="{Binding StatusName}"
+                                    Header="Status"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="QUANTITY"
-                                    Binding="{Binding QUANTITY}"
+                                    Header="Created By"
+                                    Binding="{Binding CreatedBy}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="TOTAL COST"
-                                    Binding="{Binding TOTAL_COST}"
+                                    Header="Total Cost"
+                                    Binding="{Binding TotalCost}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="STATUS"
-                                    Binding="{Binding STATUS}"
+                                    Header="Delivery Date"
+                                    Binding="{Binding DeliveryDate}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="DALIVERY DATE"
-                                    Binding="{Binding DELIVERY_DATE}"
+                                    Header="Date Created"
+                                    Binding="{Binding DateAdded}"
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

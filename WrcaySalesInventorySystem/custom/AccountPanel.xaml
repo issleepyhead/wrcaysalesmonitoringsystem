@@ -24,18 +24,28 @@
                           VerticalAlignment="Center"
                           Style="{StaticResource SearchBarExtend}"/>
             <Grid>
-                <Button x:Name="AddButton" Foreground="{StaticResource ApplicationLight}" FontSize="9"
-                        hc:BorderElement.CornerRadius="0"
-                        Content="Add"
-                        hc:IconElement.Height="12"
-                        hc:IconElement.Width="12"
-                        Height="30"
-                        Width="140"
-                        Padding="0"
-                        BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}"
-                        VerticalAlignment="Center"
-                        Grid.Column="1"/>
+                <StackPanel Orientation="Horizontal">
+                    <hc:Pagination Name="Pagination"
+                                   MaxPageCount="5"
+                                   PageIndex="1"
+                                   MaxPageInterval="3"
+                                   DataCountPerPage="30"
+                                   VerticalAlignment="Center"
+                                   Margin="0 0 10 0"
+                                   hc:BorderElement.CornerRadius="0" PageUpdated="Pagination_PageUpdated"/>
+                    <Button x:Name="AddButton" Foreground="{StaticResource ApplicationLight}" FontSize="9"
+                            hc:BorderElement.CornerRadius="0"
+                            Content="New Category"
+                            hc:IconElement.Height="12"
+                            hc:IconElement.Width="12"
+                            Height="30"
+                            Width="110"
+                            Padding="0"
+                            BorderThickness="0"
+                            Background="{StaticResource ApplicationPrimaryDark}"
+                            VerticalAlignment="Center"
+                            Grid.Column="1" Click="AddButton_Click"/>
+                </StackPanel>
             </Grid>
         </hc:FlexPanel>
         <DataGrid x:Name="AccountsDataGridView"
@@ -50,27 +60,31 @@
                   AutoGenerateColumns="False"
                   Grid.ColumnSpan="2"
                   Grid.Row="1"
-                  Margin="10 0 10 10" RowHeight="30">
+                  Margin="10 0 10 10" RowHeight="30" SelectionChanged="AccountsDataGridView_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="13"
-                                    Header="FULL NAME"
-                                    Binding="{Binding FULL_NAME}"
+                                    Header="First Name"
+                                    Binding="{Binding FirstName}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="ROLE"
-                                    Binding="{Binding ROLE}"
+                                    Header="Last Name"
+                                    Binding="{Binding LastName}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="USERNAME"
-                                    Binding="{Binding USERNAME}"
+                                    Header="Role"
+                                    Binding="{Binding RoleName}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="CONTACT"
-                                    Binding="{Binding CONTACT}"
+                                    Header="Username"
+                                    Binding="{Binding UserName}"
                                     Width="*"/>
                 <DataGridTextColumn FontSize="13"
-                                    Header="ADDRESS"
-                                    Binding="{Binding ADDRESS}"
+                                    Header="Contact"
+                                    Binding="{Binding Contact}"
+                                    Width="*"/>
+                <DataGridTextColumn FontSize="13"
+                                    Header="Address"
+                                    Binding="{Binding Address}"
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

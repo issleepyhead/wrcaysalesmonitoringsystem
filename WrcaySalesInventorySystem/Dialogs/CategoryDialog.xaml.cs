@@ -46,7 +46,7 @@ namespace WrcaySalesInventorySystem.Dialogs
             }
 
             IDataExecutor? command;
-            if (_vmCategory.CategoryID != 0)
+            if (_vmCategory.CategoryID != null)
             {
                 command = new UpdateCommand(_vmCategory);
             }
@@ -58,11 +58,11 @@ namespace WrcaySalesInventorySystem.Dialogs
 
             if (command != null && command.Execute())
             {
-                Growl.Success((_vmCategory?.CategoryID != 0) ? "Category has been updated." : "Category has been added.");
+                Growl.Success((_vmCategory?.CategoryID != null) ? "Category has been updated." : "Category has been added.");
                 Helpers.CloseDialog(Closebtn);
             }
             else
-                Growl.Error((_vmCategory?.CategoryID != 0) ? "Failed updating the category." : "Failed adding the category.");
+                Growl.Error((_vmCategory?.CategoryID != null) ? "Failed updating the category." : "Failed adding the category.");
             mainWindow?.UpdateUI();
         }
 

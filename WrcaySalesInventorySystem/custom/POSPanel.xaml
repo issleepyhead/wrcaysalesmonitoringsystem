@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:local="clr-namespace:WrcaySalesInventorySystem.custom"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="800">
+             d:DesignWidth="600">
     <Grid Background="{StaticResource ApplicationLight}">
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
@@ -18,34 +19,176 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Border BorderBrush="Gray" BorderThickness=".3"/>
+                <Border BorderBrush="Silver" BorderThickness="0 0 .5 0"/>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, Mode=OneWay, StringFormat='yyyy-MM-dd hh:mm tt'}"
+                               FontSize="14"
+                               Padding="10 4 0 0"
+                               FontWeight="Bold"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Invoice # :"
+                                   FontSize="14"
+                                   Padding="10 4 0 0"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock Text="0000001"
+                                   FontSize="14"
+                                   Padding="5 4 0 0"
+                                   FontWeight="DemiBold"/>
+                    </StackPanel>
+                </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
-                <Border BorderBrush="Gray" BorderThickness=".3"/>
+                <Border BorderBrush="Silver" BorderThickness=".5 0 0 0"/>
+                <StackPanel Orientation="Vertical">
+                    <hc:FlexPanel JustifyContent="SpaceBetween">
+                        <TextBlock Text="Subtotal -"
+                                   FontSize="14"
+                                   Padding="10 4 0 0"/>
+                        <TextBlock Text="-"
+                                   FontSize="14"
+                                   Padding="0 4 10 0"
+                                   FontWeight="Light"/>
+                    </hc:FlexPanel>
+                    <StackPanel Orientation="Vertical"
+                                x:Name="DisplayDiscount">
+                        <hc:FlexPanel JustifyContent="SpaceBetween">
+                            <TextBlock Text="Discount -"
+                                   FontSize="14"
+                                   Padding="10 4 0 0"/>
+                            <TextBlock Text="-"
+                                   FontSize="14"
+                                   Padding="0 4 10 0"
+                                   FontWeight="Light"/>
+                        </hc:FlexPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                                x:Name="DisplayTax">
+                        <hc:FlexPanel JustifyContent="SpaceBetween">
+                            <TextBlock Text="Tax -"
+                                   FontSize="14"
+                                   Padding="10 4 0 0"/>
+                            <TextBlock Text="-"
+                                   FontSize="14"
+                                   Padding="0 4 10 0"
+                                   FontWeight="Light"/>
+                        </hc:FlexPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                                x:Name="DisplayAdditionalFee">
+                        <hc:FlexPanel JustifyContent="SpaceBetween">
+                            <TextBlock Text="Tax -"
+                                       FontSize="14"
+                                       Padding="10 4 0 0"
+                                       x:Name="FeeNameTextBlock"/>
+                            <TextBlock Text="-"
+                                       FontSize="14"
+                                       Padding="0 4 10 0"
+                                       FontWeight="Light"
+                                       x:Name="FeeNameValue"/>
+                        </hc:FlexPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <hc:FlexPanel JustifyContent="SpaceBetween">
+                            <TextBlock Text="Grand Total -"
+                                   FontSize="14"
+                                   Padding="10 4 0 0"/>
+                            <TextBlock Text="-"
+                                   FontSize="14"
+                                   Padding="0 4 10 0"
+                                   FontWeight="Light"/>
+                        </hc:FlexPanel>
+                    </StackPanel>
+                </StackPanel>
             </Grid>
         </Grid>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="400"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <hc:TabControl x:Name="TabControlContainer"
-                               ShowCloseButton="False"
-                               IsDraggable="False"
-                               IsTabFillEnabled="True"
-                               Grid.RowSpan="2">
-                    <TabItem Header="Cart">
-
-                    </TabItem>
-                    <TabItem Header="Products">
-                        
-                    </TabItem>
-                </hc:TabControl>
-            </Grid>
-            <Grid Grid.Row="1">
+        <hc:TabControl Grid.Row="1">
+            <hc:TabItem Header="Counter">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <hc:FlexPanel AlignContent="Center" JustifyContent="SpaceBetween">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="DiscountButton"
+                                        Margin="10 4 10 0"
+                                        Foreground="#fff"
+                                        FontSize="12"
+                                        hc:BorderElement.CornerRadius="0"
+                                        Content="Discount"
+                                        Height="30"
+                                        Width="140"
+                                        BorderThickness="0"
+                                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                                <Button Name="VatButton"
+                                        Margin="0 4 0 0"
+                                        Foreground="#fff"
+                                        FontSize="12"
+                                        hc:BorderElement.CornerRadius="0"
+                                        Content="VAT"
+                                        Height="30"
+                                        Width="140"
+                                        BorderThickness="0"
+                                        Background="{StaticResource ApplicationPrimaryDark}"/>
+                            </StackPanel>
+                            <Button Name="SaveButton"
+                                    Margin="0 4 10 0"
+                                    Foreground="#fff"
+                                    FontSize="12"
+                                    hc:BorderElement.CornerRadius="0"
+                                    Content="Add Item"
+                                    Height="30"
+                                    Width="140"
+                                    BorderThickness="0"
+                                    Background="{StaticResource ApplicationPrimaryDark}"/>
+                        </hc:FlexPanel>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <DataGrid x:Name="ProductDataGridView"
+                                  RowStyle="{DynamicResource CustomDataGridRowStyle}"
+                                  ColumnHeaderStyle="{DynamicResource CustomDataGridColumnHeaderStyle}"
+                                  CellStyle="{DynamicResource CustomDataGridCellStyle}"
+                                  IsReadOnly="True"
+                                  CanUserResizeColumns="False"
+                                  AutoGenerateColumns="False"
+                                  Grid.Row="1"
+                                  Margin="10 5 10 10"
+                                  hc:Empty.ShowEmpty="True"
+                                  Padding="0" RowHeight="30">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn FontSize="13"
+                                                    Header="Product Name"
+                                                    Binding="{Binding ProductName}"
+                                                    Width="*"/>
+                                <DataGridTextColumn FontSize="13"
+                                                    Header="Category"
+                                                    Binding="{Binding CategoryName}"
+                                                    Width="*"/>
+                                <DataGridTextColumn FontSize="13"
+                                                    Header="Price"
+                                                    Binding="{Binding ProductPrice}"
+                                                    Width="*"/>
+                                <DataGridTextColumn FontSize="13"
+                                                    Header="Cost Price"
+                                                    Binding="{Binding ProductCost}"
+                                                    Width="*"/>
+                                <DataGridTextColumn FontSize="13"
+                                                    Header="Date Added"
+                                                    Binding="{Binding DateAdded}"
+                                                    Width="*"/>
+                                <DataGridTextColumn FontSize="13"
+                                                    Header="Last Updated"
+                                                    Binding="{Binding DateUpdated}"
+                                                    Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </hc:TabItem>
+            <hc:TabItem Header="Hotkeys">
                 
-            </Grid>
-        </Grid>
+            </hc:TabItem>
+        </hc:TabControl>
     </Grid>
 </UserControl>

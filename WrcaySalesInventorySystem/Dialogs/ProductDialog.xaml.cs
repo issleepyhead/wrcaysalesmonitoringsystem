@@ -37,6 +37,7 @@ namespace WrcaySalesInventorySystem.Dialogs
                 _viewModel = new();
                 DeleteButton.Visibility = Visibility.Collapsed;
             }
+            AdvancePanel.Visibility = Visibility.Collapsed;
             DataContext = _viewModel;
         }
 
@@ -147,6 +148,28 @@ namespace WrcaySalesInventorySystem.Dialogs
                 {
                     ProductPriceError.Visibility = Visibility.Collapsed;
                     ProductPriceTextBox.BorderBrush = new BrushConverter().ConvertFromString("#FFE0E0E0") as Brush;
+                }
+            }
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if(AdvancePanel != null)
+            {
+                if (sender.Equals(SimpleProduct) && SimpleProduct.IsChecked == true)
+                {
+                    AdvancePanel.Visibility = Visibility.Collapsed;
+                    MainGrid.RowDefinitions.RemoveAt(2);
+
+
+                }
+                else
+                {
+                    AdvancePanel.Visibility = Visibility.Visible;
+                    RowDefinition row = new();
+                    row.Height = new GridLength(205);
+                    MainGrid.RowDefinitions.Insert(2, row);
+                    Grid.SetRow(AdvancePanel, 2);
                 }
             }
         }

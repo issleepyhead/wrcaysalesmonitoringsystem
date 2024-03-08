@@ -20,11 +20,11 @@ namespace WrcaySalesInventorySystem.ViewModel
         private string? _dateUpdated;
         private string? _createdBy;
         private string? _updatedBy;
-        private int _updatedID;
-        private int _createdID;
-        private int _categoryID;
+        private string? _updatedID;
+        private string? _createdID;
+        private string? _categoryID;
 
-        public int CreatedID
+        public string? CreatedID
         {
             get => _createdID;
             set
@@ -34,7 +34,7 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
         }
 
-        public int UpdatedID
+        public string? UpdatedID
         {
             get => _updatedID;
             set
@@ -101,7 +101,7 @@ namespace WrcaySalesInventorySystem.ViewModel
                 Changed("CategoryDescription");
             }
         }
-        public int CategoryID { 
+        public string? CategoryID { 
             get => _categoryID;
             set
             {
@@ -160,7 +160,7 @@ namespace WrcaySalesInventorySystem.ViewModel
             try
             {
                 _sqlConnection = new BaseConnection().getConnection();
-                if (CategoryID == 0)
+                if (CategoryID != null)
                 {
                     _sqlCommand = new SqlCommand(
                         "SELECT COUNT(*) FROM tblcategories WHERE category_name = @category_name",
@@ -233,15 +233,15 @@ namespace WrcaySalesInventorySystem.ViewModel
                     for (int i = 0; i < data?.Rows.Count; i++)
                     {
                         ViewModelCategory vmCat = new();
-                        if (data != null)
+                        foreach(DataRow row in data.Rows)
                         {
-                            vmCat.CategoryID = (int)data.Rows[i][0];
-                            vmCat.CategoryName = data.Rows[i][1].ToString();
-                            vmCat.CategoryDescription = data.Rows[i][2].ToString();
-                            vmCat.CreatedBy = data.Rows[i][3].ToString();
-                            vmCat.UpdatedBy = data.Rows[i][4].ToString();
-                            string x = data.Rows[i][5].ToString() ?? "";
-                            string y = data.Rows[i][6].ToString() ?? "";
+                            vmCat.CategoryID = row["id"].ToString();
+                            vmCat.CategoryName = row["category_name"].ToString();
+                            vmCat.CategoryDescription = row["description"].ToString();
+                            vmCat.CreatedBy = row["created_by"].ToString();
+                            vmCat.UpdatedBy = row["updated_by"].ToString();
+                            string x = row["date_added"].ToString() ?? "";
+                            string y = row["date_updated"].ToString() ?? "";
                             vmCat.DateAdded = DateTime.Parse(x).ToShortDateString();
                             vmCat.DateUpdated = DateTime.Parse(y).ToShortDateString();
                         }

@@ -6,8 +6,10 @@
              xmlns:local="clr-namespace:WrcaySalesInventorySystem.Dialogs"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d"
-             Width="500" Loaded="UserControl_Loaded">
-    <Grid Background="{StaticResource ApplicationLight}">
+             Width="500"
+             Height="Auto" Loaded="UserControl_Loaded">
+    <Grid Background="{StaticResource ApplicationLight}"
+          x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
@@ -36,6 +38,17 @@
                     Grid.Row="1"
                     Margin="30 12"
                     VerticalAlignment="Center">
+            <hc:ButtonGroup hc:BorderElement.CornerRadius="0">
+                <RadioButton hc:BorderElement.CornerRadius="0"
+                             Content="Simple"
+                             IsChecked="True"
+                             Checked="RadioButton_Checked"
+                             x:Name="SimpleProduct"/>
+                <RadioButton hc:BorderElement.CornerRadius="0"
+                             Content="Advance"
+                             Checked="RadioButton_Checked"
+                             x:Name="AdvanceProduct"/>
+            </hc:ButtonGroup>
             <StackPanel Margin="0 15 0 0">
                 <TextBlock Name="CategoryError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
                 <hc:ComboBox Name="CategoryCombobox"
@@ -104,7 +117,43 @@
                                   SelectedValue="{Binding ProductUnit}" SelectionChanged="SKUCombobox_SelectionChanged"/>
             </StackPanel>
         </StackPanel>
-        <hc:SimplePanel Grid.Row="2">
+        <StackPanel Orientation="Vertical"
+                    Margin="30 0"
+                    VerticalAlignment="Center"
+                    x:Name="AdvancePanel"
+                    Visibility="Collapsed">
+            <hc:Divider Content="Advance Options" HorizontalContentAlignment="Left" Margin="0 0 0 15"/>
+            <StackPanel>
+                <hc:TextBox Name="ProductDescription"
+                            Text="{Binding ProductName}"
+                            HorizontalAlignment="Stretch"
+                            hc:BorderElement.CornerRadius="0"
+                            hc:InfoElement.Placeholder="Product Description (Optional)"
+                            Height="40"/>
+            </StackPanel>
+            <StackPanel Margin="0 15 0 0">
+                <TextBlock Name="SupplierError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
+                <hc:ComboBox Name="SupplierComboBox"
+                                  HorizontalAlignment="Stretch"
+                                  hc:BorderElement.CornerRadius="0"
+                                  MinHeight="40"
+                                  Height="Auto"
+                                  IsTextSearchEnabled="True"
+                                  hc:InfoElement.Placeholder="Supplier (Optional)"
+                                  SelectedValue="{Binding SupplierID}"/>
+            </StackPanel>
+            <StackPanel Margin="0 15 0 0">
+                <TextBlock Name="DiscountError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
+                <hc:TextBox Name="DiscountComoboBox"
+                            HorizontalAlignment="Stretch"
+                            hc:BorderElement.CornerRadius="0"
+                            MinHeight="40"
+                            Height="Auto"
+                            hc:InfoElement.Placeholder="Discount % (Optional)"
+                            Text="{Binding DiscountValue}"/>
+            </StackPanel>
+        </StackPanel>
+        <hc:SimplePanel Grid.Row="3">
             <hc:FlexPanel JustifyContent="FlexEnd">
                 <Button Name="DeleteButton"
                         Margin="0 0 10 0"
