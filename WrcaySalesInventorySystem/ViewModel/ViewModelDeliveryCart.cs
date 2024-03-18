@@ -8,12 +8,14 @@ namespace WrcaySalesInventorySystem.ViewModel
 {
     public class ViewModelDeliveryCart : ViewModelBase
     {
-        private int _productID;
+        private string? _productID;
         private string? _quantity;
-        private double _price;
-        private double _cost;
-        private double _total;
+        private string? _cost;
+        private string? _price;
+        private string? _total;
         private string? _productName;
+        private string? _stocksAvailable;
+        public string? _stocks = null;
 
         public string? ProductName
         {
@@ -25,13 +27,33 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
         }
 
-        public int ProductID
+        public string? ProductID
         {
             get => _productID;
             set
             {
                 _productID = value;
                 Changed("ProductID");
+            }
+        }
+
+        public string? Price
+        {
+            get => _price;
+            set
+            {
+                _price = value;
+                Changed("Price");
+            }
+        }
+
+        public string? StocksAvailable
+        {
+            get => _stocksAvailable;
+            set
+            {
+                _stocksAvailable = value;
+                Changed("StocksAvailable");
             }
         }
 
@@ -45,17 +67,7 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
         }
 
-        public double Price
-        {
-            get => _price;
-            set
-            {
-                _price = value;
-                Changed("Price");
-            }
-        }
-
-        public double Cost
+        public string? Cost
         {
             get => _cost;
             set
@@ -65,7 +77,7 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
         }
 
-        public double  Total
+        public string?  Total
         {
             get => _total;
             set

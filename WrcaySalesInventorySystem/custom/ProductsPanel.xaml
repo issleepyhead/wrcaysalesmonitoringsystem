@@ -25,7 +25,7 @@
                                   Height="30"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Left"
-                                  Style="{StaticResource SearchBarExtend}"/>
+                                  Style="{StaticResource SearchBarExtend}" SearchStarted="ProductSearch_SearchStarted"/>
                     <StackPanel Orientation="Horizontal">
 
                         <hc:Pagination Name="Pagination"

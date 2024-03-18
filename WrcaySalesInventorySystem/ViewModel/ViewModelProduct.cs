@@ -13,22 +13,23 @@ namespace WrcaySalesInventorySystem.ViewModel
     {
         private SqlConnection? _sqlConnection;
         private SqlCommand? _sqlCommand;
-        private int _productID;
+        private string? _productID;
         private string? _productName;
         private string? _productDescription;
         private string? _productPrice;
         private string? _productCost;
-        private int _categoryID;
+        private string? _categoryID;
         private string? _categoryName;
-        private int _createdBy;
-        private int _updatedBy;
+        private string? _createdBy;
+        private string? _updatedBy;
         private string? _dateAdded;
         private string? _dateUpdated;
         private string? _createdUser;
         private string? _updatedUser;
-        private int _sku;
+        private string? _sku;
+        private string? _supplierID;
 
-        public int ProductUnit
+        public string? ProductUnit
         {
             get => _sku;
             set
@@ -38,8 +39,18 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
         }
 
-        public int CreatedBy { get => _createdBy; set => _createdBy = value; }
-        public int UpdatedBy { get => _updatedBy; set=> _updatedBy = value; }
+        public string? SupplierID
+        {
+            get => _supplierID;
+            set
+            {
+                _supplierID = value;
+                Changed("SupplierID");
+            }
+        }
+
+        public string? CreatedBy { get => _createdBy; set => _createdBy = value; }
+        public string? UpdatedBy { get => _updatedBy; set=> _updatedBy = value; }
 
         public string? UpdatedUser
         {
@@ -135,7 +146,7 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
         }
 
-        public int ProductID {
+        public string? ProductID {
             get => _productID;
             set
             {
@@ -144,7 +155,7 @@ namespace WrcaySalesInventorySystem.ViewModel
             }
         }
 
-        public int CategoryID
+        public string? CategoryID
         {
             get => _categoryID;
             set
@@ -161,15 +172,16 @@ namespace WrcaySalesInventorySystem.ViewModel
                 _sqlConnection = new BaseConnection().getConnection();
                 _sqlCommand = new SqlCommand(
                     "InsertProductProcedure @product_category, @product_name, @product_description, " +
-                    "@product_price, @product_cost, @sku, @user_id",
+                    "@product_price, @product_cost, @sku, @supplier_id, @user_id",
                     _sqlConnection
                 );
                 _sqlCommand.Parameters.AddWithValue("@product_name", ProductName);
                 _sqlCommand.Parameters.AddWithValue("@product_price", ProductPrice);
+                _sqlCommand.Parameters.AddWithValue("@supplier_id", string.IsNullOrEmpty(SupplierID) ? DBNull.Value : SupplierID);
                 _sqlCommand.Parameters.AddWithValue("@product_cost", ProductCost);
                 _sqlCommand.Parameters.AddWithValue("@sku", ProductUnit);
-                _sqlCommand.Parameters.AddWithValue("@product_category", CategoryID == 0 ? DBNull.Value : CategoryID);
-                _sqlCommand.Parameters.AddWithValue("@product_description", ProductDescription == null ? DBNull.Value : ProductDescription);
+                _sqlCommand.Parameters.AddWithValue("@product_category", string.IsNullOrEmpty(CategoryID) ? DBNull.Value : CategoryID);
+                _sqlCommand.Parameters.AddWithValue("@product_description", string.IsNullOrEmpty(ProductDescription) ? DBNull.Value : ProductDescription);
                 _sqlCommand.Parameters.AddWithValue("@user_id", 22);
                 return _sqlCommand.ExecuteNonQuery() > 0;
             }
@@ -237,15 +249,16 @@ namespace WrcaySalesInventorySystem.ViewModel
                 _sqlConnection = new BaseConnection().getConnection();
                 _sqlCommand = new SqlCommand(
                     "UpdateProductProcedure @product_id, @product_category, @product_name, @product_description, " +
-                    "@product_price, @product_cost, @product_subcategory, @user_id",
+                    "@product_price, @product_cost, @supplier_id, @user_id",
                     _sqlConnection
                 );
                 _sqlCommand.Parameters.AddWithValue("@product_name", ProductName);
+                _sqlCommand.Parameters.AddWithValue("@supplier_id", string.IsNullOrEmpty(SupplierID) ? DBNull.Value : SupplierID);
                 _sqlCommand.Parameters.AddWithValue("@product_id", ProductID);
                 _sqlCommand.Parameters.AddWithValue("@product_price", ProductPrice);
                 _sqlCommand.Parameters.AddWithValue("@product_cost", ProductCost);
-                _sqlCommand.Parameters.AddWithValue("@product_category", CategoryID == 0 ? DBNull.Value : CategoryID);
-                _sqlCommand.Parameters.AddWithValue("@product_description", ProductDescription == null ? DBNull.Value : ProductDescription);
+                _sqlCommand.Parameters.AddWithValue("@product_category", string.IsNullOrEmpty(CategoryID) ? DBNull.Value : CategoryID);
+                _sqlCommand.Parameters.AddWithValue("@product_description", string.IsNullOrEmpty(ProductDescription) ? DBNull.Value : ProductDescription);
                 _sqlCommand.Parameters.AddWithValue("@user_id", 22);
                 return _sqlCommand.ExecuteNonQuery() > 0;
             }
@@ -261,7 +274,7 @@ namespace WrcaySalesInventorySystem.ViewModel
         public static List<ViewModelProduct> getAll()
         {
             List<ViewModelProduct> vmData = new();
-            SqlConnection _sqlConnection = _sqlConnection = new BaseConnection().getConnection();
+            SqlConnection _sqlConnection = new BaseConnection().getConnection();
             try
             {
                 SqlCommand _sqlCommand = new SqlCommand(
@@ -273,23 +286,23 @@ namespace WrcaySalesInventorySystem.ViewModel
                 adapter.Fill(data);
                 if (data != null)
                 {
-                    for (int i = 0; i < data?.Rows.Count; i++)
+                    foreach(DataRow row in data.Rows)
                     {
                         ViewModelProduct vmCat = new();
                         if (data != null)
                         {
-                            vmCat.ProductID = (int)data.Rows[i][0];
-                            vmCat.CategoryID = (int)data.Rows[i][1];
-                            vmCat.CategoryName = data.Rows[i][2].ToString();
-                            vmCat.ProductName = data.Rows[i][3].ToString();
-                            vmCat.ProductDescription = data.Rows[i][4].ToString();
-                            vmCat.ProductPrice = data.Rows[i][5].ToString();
-                            vmCat.ProductCost = data.Rows[i][6].ToString();
-                            vmCat.ProductUnit = (int)data.Rows[i][7];
-                            vmCat.CreatedUser = data.Rows[i][8].ToString();
-                            vmCat.UpdatedUser = data.Rows[i][9].ToString();
-                            string x = data.Rows[i][10].ToString() ?? "";
-                            string y = data.Rows[i][11].ToString() ?? "";
+                            vmCat.ProductID = row["id"].ToString();
+                            vmCat.CategoryID = row["category_id"].ToString();
+                            vmCat.CategoryName = row["category_name"].ToString();
+                            vmCat.ProductName = row["product_name"].ToString();
+                            vmCat.ProductDescription = row["product_description"].ToString();
+                            vmCat.ProductPrice = row["product_price"].ToString();
+                            vmCat.ProductCost = row["product_cost"].ToString();
+                            vmCat.ProductUnit = row["sku"].ToString();
+                            vmCat.CreatedUser = row["created_by"].ToString();
+                            vmCat.UpdatedUser = row["updated_by"].ToString();
+                            string x = row["date_added"].ToString() ?? "";
+                            string y = row["date_updated"].ToString() ?? "";
                             vmCat.DateAdded = DateTime.Parse(x).ToShortDateString();
                             vmCat.DateUpdated = DateTime.Parse(y).ToShortDateString();
                         }

@@ -66,24 +66,67 @@ namespace WrcaySalesInventorySystem.Dialogs
             SKUCombobox.SelectedValuePath = "id";
             SKUCombobox.SelectedIndex = 0;
 
+            conn = new BaseConnection().getConnection();
+            cmd = new SqlCommand("SELECT id, supplier_name FROM tblsuppliers", conn);
+            dataTable = new();
+            adapter = new(cmd);
+            adapter.Fill(dataTable);
+            SupplierComboBox.ItemsSource = dataTable.DefaultView;
+            SupplierComboBox.DisplayMemberPath = "supplier_name";
+            SupplierComboBox.SelectedValuePath = "id";
+            SupplierComboBox.SelectedIndex = 0;
+
         }
 
         private void CategoryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (CategoryCombobox.SelectedIndex != -1)
-                _viewModel.CategoryID = (int)CategoryCombobox.SelectedValue;
+                _viewModel.CategoryID = CategoryCombobox.SelectedValue.ToString();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (_viewModel.Exists())
             {
-                Growl.Info("Category already exists!");
+                Growl.Info("Product already exists!");
                 return;
             }
 
+            if(!Helpers.Check(ProductNameTextBox, ProductNameError, InputType.STRING_INPUT, "Please provide a valid name.") ||
+                !Helpers.Check(ProductPriceTextBox, ProductPriceError, InputType.NUMERIC_INPUT, "Please provide a valid price.") ||
+                !Helpers.Check(ProductCostTextBox, ProductCostError, InputType.NUMERIC_INPUT, "Please provide a valid cost."))
+            {
+                if (ProductPriceError.IsVisible)
+                {
+                    ProductCostError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    ProductCostError.Visibility = Visibility.Collapsed;
+                    ProductCostTextBox.BorderBrush = new BrushConverter().ConvertFromString("#FFE0E0E0") as Brush;
+                }
+
+                if (ProductCostError.IsVisible)
+                {
+                    ProductPriceError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    ProductPriceError.Visibility = Visibility.Collapsed;
+                    ProductPriceTextBox.BorderBrush = new BrushConverter().ConvertFromString("#FFE0E0E0") as Brush;
+                }
+                return;
+            }
+
+            if (!(SimpleProduct.IsChecked == true))
+            {
+                _viewModel.ProductDescription = ProductDescription.Text;
+                _viewModel.SupplierID = SupplierComboBox.SelectedValue.ToString();
+            }
+
+
             IDataExecutor? command;
-            if (_viewModel.ProductID != 0)
+            if (!string.IsNullOrEmpty(_viewModel.ProductID))
             {
                 command = new UpdateCommand(_viewModel);
             }
@@ -95,11 +138,11 @@ namespace WrcaySalesInventorySystem.Dialogs
 
             if (command != null && command.Execute())
             {
-                Growl.Success((_viewModel?.ProductID != 0) ? "Product has been updated." : "Product has been added.");
+                Growl.Success((!string.IsNullOrEmpty(_viewModel?.ProductID)) ? "Product has been updated." : "Product has been added.");
                 Helpers.CloseDialog(Closebtn);
             }
             else
-                Growl.Error((_viewModel?.ProductID != 0) ? "Failed updating the product." : "Failed adding the product.");
+                Growl.Error((!string.IsNullOrEmpty(_viewModel?.ProductID)) ? "Failed updating the product." : "Failed adding the product.");
             _mainWindow?.UpdateUI();
         }
 
@@ -119,7 +162,10 @@ namespace WrcaySalesInventorySystem.Dialogs
 
         private void SKUCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _viewModel.ProductUnit = (int)SKUCombobox.SelectedValue;
+            if (SKUCombobox.SelectedIndex != -1)
+            {
+                _viewModel.ProductUnit = SKUCombobox.SelectedValue.ToString();
+            }
         }
 
         private void ProductNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -160,8 +206,6 @@ namespace WrcaySalesInventorySystem.Dialogs
                 {
                     AdvancePanel.Visibility = Visibility.Collapsed;
                     MainGrid.RowDefinitions.RemoveAt(2);
-
-
                 }
                 else
                 {

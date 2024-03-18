@@ -2,12 +2,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WrcaySalesInventorySystem.Class;
 using WrcaySalesInventorySystem.Dialogs;
+using WrcaySalesInventorySystem.Properties;
 using WrcaySalesInventorySystem.ViewModel;
+using System.Collections.ObjectModel;
 
 namespace WrcaySalesInventorySystem.custom
 {
@@ -47,6 +51,51 @@ namespace WrcaySalesInventorySystem.custom
 
             CategoriesDataGridView.ItemsSource = _data.Take(30);
             Helpers.PaginationConfig(_data.Count, Pagination);
+        }
+
+        private void CategorySearch_SearchStarted(object sender, HandyControl.Data.FunctionEventArgs<string> e)
+        {
+            ObservableCollection<ViewModelCategory> vmData = new();
+            SqlConnection _sqlConnection = new(Settings.Default.wrcaydbConnectionString);
+            try
+            {
+                SqlCommand _sqlCommand = new SqlCommand(
+                    "SELECT * FROM viewtblcategories WHERE category_name LIKE @category_name",
+                    _sqlConnection
+                );
+                _sqlCommand.Parameters.AddWithValue("@category_name", CategorySearch.Text ?? "");
+                SqlDataAdapter adapter = new(_sqlCommand);
+                DataTable data = new();
+                adapter.Fill(data);
+                if (data != null)
+                {
+                    for (int i = 0; i < data?.Rows.Count; i++)
+                    {
+                        ViewModelCategory vmCat = new();
+                        foreach (DataRow row in data.Rows)
+                        {
+                            vmCat.CategoryID = row["id"].ToString();
+                            vmCat.CategoryName = row["category_name"].ToString();
+                            vmCat.CategoryDescription = row["description"].ToString();
+                            vmCat.CreatedBy = row["created_by"].ToString();
+                            vmCat.UpdatedBy = row["updated_by"].ToString();
+                            string x = row["date_added"].ToString() ?? "";
+                            string y = row["date_updated"].ToString() ?? "";
+                            vmCat.DateAdded = DateTime.Parse(x).ToShortDateString();
+                            vmCat.DateUpdated = DateTime.Parse(y).ToShortDateString();
+                        }
+                        vmData.Add(vmCat);
+                    }
+                }
+            }
+            catch
+            {
+                Growl.Error("An error occured while performing the action.");
+            }
+            finally
+            {
+                _sqlConnection?.Dispose();
+            }
         }
     }
 }

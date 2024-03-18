@@ -34,7 +34,7 @@ namespace SystemTesting
         {
             _vmCategory.CategoryName = "TestMethodCategory123";
             _vmCategory.CategoryDescription = "sample desc";
-            _vmCategory.CategoryID = 3;
+            _vmCategory.CategoryID = "";
             UpdateCommand updateCommand = new(_vmCategory);
             bool res = updateCommand.Execute();
             Assert.IsTrue(res, $"The result is {res}");

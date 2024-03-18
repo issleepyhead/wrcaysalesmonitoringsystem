@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:WrcaySalesInventorySystem.Dialogs"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d"
-             Width="500" Loaded="UserControl_Loaded">
+             Width="1000"
+             Height="700" Loaded="UserControl_Loaded">
     <Grid Background="{StaticResource ApplicationLight}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -14,7 +15,7 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <hc:SimplePanel Background="{StaticResource ApplicationPrimaryDark}">
-            <TextBlock Text="Product"
+            <TextBlock Text="Delivery Details"
                        Foreground="{StaticResource ApplicationLight}"
                        FontSize="24"
                        HorizontalAlignment="Left"
@@ -31,55 +32,91 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"/>
         </hc:SimplePanel>
-        <StackPanel Orientation="Vertical"
-                    Grid.Row="1"
-                    Margin="30 8"
-                    VerticalAlignment="Center">
-            <StackPanel Margin="0 15 0 0">
-                <hc:ComboBox Name="ProductNameComboBox"
-                             HorizontalAlignment="Stretch"
-                             hc:BorderElement.CornerRadius="0"
-                             Height="40"
-                             hc:InfoElement.Placeholder="Select product"
-                             IsEditable="True" SelectionChanged="ProductNameComboBox_SelectionChanged"/>
-            </StackPanel>
-            <StackPanel Margin="0 15 0 0">
-                <hc:TextBox Name="SellingPriceTextBox"
-                         HorizontalAlignment="Stretch"
-                         hc:BorderElement.CornerRadius="0"
-                         Height="40"
-                         hc:InfoElement.Placeholder="Selling price"
-                         IsEnabled="False"
-                            Text="{Binding Price}"/>
-            </StackPanel>
-            <StackPanel Margin="0 15 0 0">
-                <!--<TextBlock HorizontalAlignment="Left"
-                           Text="COST PRICE: "
-                           FontSize="18"
-                           Padding="0 0 0 5"
-                           FontWeight="Bold"/>-->
-                <hc:TextBox Name="CostPriceTextBox"
-                         HorizontalAlignment="Stretch"
-                         hc:BorderElement.CornerRadius="0"
-                         IsEnabled="False"
-                         hc:InfoElement.Placeholder="Cost price"
-                         Height="40"
-                            Text="{Binding Cost}"/>
-            </StackPanel>
-            <StackPanel Margin="0 15 0 0">
-                <TextBlock
-                           Foreground="red"
-                           HorizontalAlignment="Left"
-                           Visibility="Visible"
-                            x:Name="QuantityError"/>
-                <hc:TextBox Name="QuantityTextBox"
-                         Text="{Binding Quantity}"
-                         HorizontalAlignment="Stretch"
-                         hc:BorderElement.CornerRadius="0"
-                         hc:InfoElement.Placeholder="Quantity"
-                         Height="40"/>
-            </StackPanel>
-        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"
+                  Margin="15 0">
+                <hc:FlexPanel JustifyContent="SpaceBetween"
+                                  Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Supplier:"
+                                           VerticalAlignment="Center"
+                                           FontSize="16"
+                                           FontWeight="Medium"/>
+                        <TextBlock Name="SupplierName"
+                                             HorizontalAlignment="Stretch"
+                                             hc:BorderElement.CornerRadius="0"
+                                             Margin="8 0 0 0"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            FontWeight="Medium"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left"
+                                    Margin="0 0 15 0">
+                        <TextBlock Text="Reference # : "
+                                       VerticalAlignment="Center"
+                                       FontSize="18"
+                                       FontWeight="Medium"/>
+                        <TextBlock Name="ReferenceNumberTextBlock"
+                                       Text="-"
+                                       VerticalAlignment="Center"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="4 0 0 0"/>
+                    </StackPanel>
+                </hc:FlexPanel>
+            </Grid>
+            <DataGrid x:Name="ProductDataGridView"
+                              RowStyle="{DynamicResource CustomDataGridRowStyle}"
+                              ColumnHeaderStyle="{DynamicResource CustomDataGridColumnHeaderStyle}"
+                              CellStyle="{DynamicResource CustomDataGridCellStyle}"
+                              IsReadOnly="True"
+                              CanUserResizeColumns="False"
+                              AutoGenerateColumns="False"
+                              Grid.Row="1"
+                              Margin="15 0 15 15"
+                              hc:Empty.ShowEmpty="True"
+                              Padding="0"
+                              RowHeight="28"
+                              hc:BorderElement.CornerRadius="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="13"
+                                                Header="Product Name"
+                                                Binding="{Binding ProductName}"
+                                                Width="*"/>
+                    <DataGridTextColumn FontSize="13"
+                                                Header="Price"
+                                                Binding="{Binding Cost}"
+                                                Width="*"/>
+                    <DataGridTextColumn FontSize="13"
+                                                Header="Quantity"
+                                                Binding="{Binding Cost}"
+                                                Width="*"/>
+                    <DataGridTemplateColumn Header="Actions"
+                                                    Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <UniformGrid Columns="1" Rows="1"
+                                                     HorizontalAlignment="Stretch">
+                                    <Button Name="ReturnButton"
+                                                    Margin="0 0 10 0"
+                                                    FontSize="16"
+                                                    hc:BorderElement.CornerRadius="0"
+                                                    Content="Return"
+                                                    Height="40"
+                                                    HorizontalAlignment="Stretch"
+                                                    BorderThickness="0" Background="#FF0079FF"/>
+                                </UniformGrid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
         <hc:SimplePanel Grid.Row="2">
             <hc:FlexPanel JustifyContent="FlexEnd">
                 <Button Name="DeleteButton"
@@ -87,17 +124,17 @@
                         Foreground="{StaticResource ApplicationPrimaryLight}"
                         FontSize="16"
                         hc:BorderElement.CornerRadius="0"
-                        Content="Delete"
+                        Content="Cancel"
                         Height="40"
                         Width="140"
                         BorderThickness="0"
-                        Background="{StaticResource ApplicationPrimaryDark}" Click="DeleteButton_Click"/>
+                        Background="{StaticResource ApplicationPrimaryDark}"/>
                 <Button Name="SaveButton"
                         Margin="0 0 30 0"
                         Foreground="{StaticResource ApplicationPrimaryLight}"
                         FontSize="16"
                         hc:BorderElement.CornerRadius="0"
-                        Content="Save"
+                        Content="Receive"
                         Height="40"
                         Width="140"
                         BorderThickness="0"

@@ -15,11 +15,11 @@ namespace WrcaySalesInventorySystem.Class
                     break;
                 case InputType.NUMERIC_INPUT:
                     input = input.TrimStart('0');
-                    if (!Regex.IsMatch(input, "^(\\d+)?\\.?(\\d+)$"))
+                    if (!Regex.IsMatch(input, @"^(\d+)?\.?(\d+)$"))
                         return false;
                     break;
                 case InputType.PHONE_INPUT:
-                    if (!Regex.IsMatch(input, "^(\\+639|09)\\d{2}[-\\s]?\\d{3}[-\\s]?\\d{4}$"))
+                    if (!Regex.IsMatch(input, @"^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$"))
                         return false;
                     break;
                 case InputType.PASSWORD_INPUT:

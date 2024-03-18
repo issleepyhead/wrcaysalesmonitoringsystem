@@ -14,6 +14,9 @@
     <Compile Update="Custom\DeliveryPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Custom\DeliveryProductEntity.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Custom\ExpensesPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +24,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Custom\POSPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Custom\POSProductEntity.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Custom\ProductEntity.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Custom\ProductsPanel.xaml.cs">
@@ -45,6 +54,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialogs\DiscountDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\POSDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialogs\ProductDialog.xaml.cs">
@@ -73,6 +85,9 @@
     <Page Update="Custom\DeliveryPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Custom\DeliveryProductEntity.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Custom\ExpensesPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -80,6 +95,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Custom\POSPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Custom\POSProductEntity.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Custom\ProductEntity.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Custom\ProductsPanel.xaml">
@@ -104,6 +125,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\DiscountDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\POSDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\ProductDialog.xaml">

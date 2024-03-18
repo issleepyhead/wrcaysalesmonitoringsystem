@@ -98,7 +98,7 @@
             </Grid>
             <StackPanel Margin="0 15 0 0">
                 <hc:TextBox Name="ProductMargin"
-                         Text="{Binding ProductDescription}"
+                         Text=""
                          HorizontalAlignment="Stretch"
                          hc:BorderElement.CornerRadius="0"
                          hc:InfoElement.Placeholder="Margin (%)"
@@ -125,7 +125,7 @@
             <hc:Divider Content="Advance Options" HorizontalContentAlignment="Left" Margin="0 0 0 15"/>
             <StackPanel>
                 <hc:TextBox Name="ProductDescription"
-                            Text="{Binding ProductName}"
+                            Text="{Binding ProductDescription}"
                             HorizontalAlignment="Stretch"
                             hc:BorderElement.CornerRadius="0"
                             hc:InfoElement.Placeholder="Product Description (Optional)"
@@ -138,19 +138,8 @@
                                   hc:BorderElement.CornerRadius="0"
                                   MinHeight="40"
                                   Height="Auto"
-                                  IsTextSearchEnabled="True"
                                   hc:InfoElement.Placeholder="Supplier (Optional)"
                                   SelectedValue="{Binding SupplierID}"/>
-            </StackPanel>
-            <StackPanel Margin="0 15 0 0">
-                <TextBlock Name="DiscountError" Visibility="Collapsed" FontSize="11" Foreground="Red"/>
-                <hc:TextBox Name="DiscountComoboBox"
-                            HorizontalAlignment="Stretch"
-                            hc:BorderElement.CornerRadius="0"
-                            MinHeight="40"
-                            Height="Auto"
-                            hc:InfoElement.Placeholder="Discount % (Optional)"
-                            Text="{Binding DiscountValue}"/>
             </StackPanel>
         </StackPanel>
         <hc:SimplePanel Grid.Row="3">

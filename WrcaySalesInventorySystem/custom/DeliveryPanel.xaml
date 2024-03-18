@@ -29,7 +29,7 @@
                            DataCountPerPage="15"
                            VerticalAlignment="Center"
                            Margin="0 0 10 0"
-                           hc:BorderElement.CornerRadius="0"/>
+                           hc:BorderElement.CornerRadius="0" PageUpdated="Pagination_PageUpdated"/>
                 <Button Name="DeliveryAddDeliveryButton"
                     Foreground="{StaticResource ApplicationPrimaryLight}" FontSize="9"
                     hc:BorderElement.CornerRadius="0"
@@ -56,7 +56,7 @@
                     CanUserResizeColumns="False"
                     AutoGenerateColumns="False"
                     Grid.Row="1"
-                    Margin="10 0 10 10" RowHeight="30">
+                    Margin="10,5,10,5" RowHeight="30" SelectionChanged="DeliveryDataGridView_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="13"
                                     Header="Invoice Number"
@@ -77,10 +77,6 @@
                 <DataGridTextColumn FontSize="13"
                                     Header="Delivery Date"
                                     Binding="{Binding DeliveryDate}"
-                                    Width="*"/>
-                <DataGridTextColumn FontSize="13"
-                                    Header="Date Created"
-                                    Binding="{Binding DateAdded}"
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -39,6 +39,7 @@ namespace WrcaySalesInventorySystem.Dialogs
             }
 
             IDataExecutor? command;
+            _vmUser.Password = PasswordTextBox.Password;
             if (_vmUser.UserID != null)
             {
                 command = new UpdateCommand(_vmUser);

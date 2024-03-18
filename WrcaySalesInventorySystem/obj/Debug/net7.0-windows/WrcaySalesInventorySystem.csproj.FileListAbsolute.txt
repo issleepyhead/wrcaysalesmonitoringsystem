@@ -330,3 +330,13 @@ C:\Users\Jade\Downloads\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj
 C:\Users\Jade\Downloads\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\WrcaySalesInventorySystem.pdb
 C:\Users\Jade\Downloads\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\WrcaySalesInventorySystem.genruntimeconfig.cache
 C:\Users\Jade\Downloads\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\ref\WrcaySalesInventorySystem.dll
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\ProductEntity.g.cs
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\ProductEntity.baml
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\DeliveryProductEntity.g.cs
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\DeliveryProductEntity.baml
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\POSProductEntity.g.cs
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\bin\Debug\net7.0-windows\LiveCharts.dll
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\bin\Debug\net7.0-windows\Spire.XLS.dll
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Custom\POSProductEntity.baml
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\POSDialog.g.cs
+D:\system\wrcaysalesmonitoringsystem\WrcaySalesInventorySystem\obj\Debug\net7.0-windows\Dialogs\POSDialog.baml
